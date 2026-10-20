@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Check that Home Assistant for GNOME is installed and set up, and say what to do when something is missing.
+# Check that Hearth for Home Assistant is installed and set up, and say what to do when something is missing.
 # Read-only: changes nothing.
 #
 #   ./verify.sh [--online]

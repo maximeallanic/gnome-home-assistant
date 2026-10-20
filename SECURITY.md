@@ -8,7 +8,7 @@ within a week.
 
 ## Scope
 
-GNOME Shell extensions run inside the Shell process with its full privileges. This extension:
+GNOME Shell extensions run inside the Shell process with its full privileges. Hearth for Home Assistant:
 
 - connects only to the Home Assistant address the user enters and, for icons, to `cdn.jsdelivr.net`;
 - keeps the access token in the user's keyring and never writes it to a file, a setting or the log;

@@ -1,7 +1,7 @@
 {
   "uuid": "home-assistant@maximeallanic.github.io",
-  "name": "Home Assistant for GNOME",
-  "description": "Home Assistant in the top bar and Quick Settings. Entities you label in Home Assistant become chips in the top bar, and one labelled entity describes a grid of tiles in Quick Settings (lights, switches, scripts, sliders, to-do lists), with optional keyboard shortcuts. Optionally registers this computer as a Home Assistant mobile_app device: sensors (lock, activity, volume, battery...), commands from automations, and notifications. It stays active on the lock screen only for these sensors and commands; chips and tiles are hidden there. The access token is kept in the keyring. Material Design Icons are downloaded from cdn.jsdelivr.net the first time they are shown (can be turned off). The preferences copy the generated Home Assistant package to the clipboard when you press Copy; nothing else touches the clipboard.",
+  "name": "Hearth for Home Assistant",
+  "description": "Hearth puts Home Assistant in the GNOME top bar and Quick Settings. Entities you label in Home Assistant become chips in the top bar, and one labelled entity describes a grid of tiles in Quick Settings (lights, switches, scripts, sliders, to-do lists), with optional keyboard shortcuts. Optionally registers this computer as a Home Assistant mobile_app device: sensors (lock, activity, volume, battery...), commands from automations, and notifications. It stays active on the lock screen only for these sensors and commands; chips and tiles are hidden there. The access token is kept in the keyring. Material Design Icons are downloaded from cdn.jsdelivr.net the first time they are shown (can be turned off). The preferences copy the generated Home Assistant package to the clipboard when you press Copy; nothing else touches the clipboard. Unofficial community project, not affiliated with Home Assistant or the Open Home Foundation.",
   "shell-version": [
     "51"
   ],

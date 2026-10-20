@@ -11,7 +11,7 @@ import Soup from 'gi://Soup?version=3.0';
 import {readRegistration, writeRegistration} from './registration.js';
 
 export const APP_ID = 'io.github.maximeallanic.GnomeHomeAssistant';
-export const APP_NAME = 'Home Assistant for GNOME';
+export const APP_NAME = 'Hearth for Home Assistant';
 
 export class MobileApp {
     // device: {name, app_version, manufacturer, model, os_name, os_version}.

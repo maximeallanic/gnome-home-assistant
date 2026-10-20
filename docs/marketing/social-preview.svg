@@ -23,7 +23,7 @@
     <text x="72" y="484" font-size="28" fill="#deddda">Lights, blinds, sliders, to-dos in Quick Settings.</text>
     <text x="72" y="528" font-size="28" fill="#deddda">Your computer as a Home Assistant device.</text>
 
-    <text x="72" y="596" font-size="20" fill="#9a9996">GNOME 51 · MIT · Not affiliated with the Open Home Foundation</text>
+    <text x="72" y="596" font-size="18" fill="#9a9996">GNOME 51 · Not affiliated with Home Assistant or the Open Home Foundation</text>
   </g>
 
   <image x="770" y="40" width="440" height="575" preserveAspectRatio="xMidYMin slice" clip-path="url(#grid-clip)"

@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Remove Home Assistant for GNOME for the current user.
+# Remove Hearth for Home Assistant for the current user.
 #
 #   ./uninstall.sh [--purge] [--dry-run]
 #   curl -fsSL https://raw.githubusercontent.com/maximeallanic/gnome-home-assistant/main/uninstall.sh | bash -s -- --purge

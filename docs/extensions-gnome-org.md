@@ -33,9 +33,10 @@ Checked against the [review guidelines](https://gjs.guide/extensions/review-guid
 
 ## Open points before submitting
 
-- **Name and icon**: "Home Assistant" is a trademark of the Open Home Foundation, and `icons/home-assistant-symbolic.svg`
-  (the Material Design Icons `home-assistant` glyph, used as the notification icon) is its logo. The guidelines ask
-  for the owner's permission for brand names and logos. Options: ask the Open Home Foundation, or rename to a
-  descriptive name ("Home dashboard for Home Assistant"...) and use a generic house icon.
+- **Name and icon**: the extension is listed as "Hearth for Home Assistant": a name of its own, with "for Home
+  Assistant" only saying what it connects to, and the description says it is unofficial and not affiliated with Home
+  Assistant or the Open Home Foundation. No Home Assistant logo is shipped; notifications use Adwaita's
+  `go-home-symbolic`. The guidelines still ask for permission for brand names, so a reviewer may question the
+  descriptor; asking the Open Home Foundation (community@openhomefoundation.org) remains the only certain answer.
 - **GNOME versions**: only 51 is declared. Each new GNOME release needs a test in a nested Shell before adding it.
 - Upload as a pre-release only after a v0.1.0 GitHub release exists, so the description's links work.

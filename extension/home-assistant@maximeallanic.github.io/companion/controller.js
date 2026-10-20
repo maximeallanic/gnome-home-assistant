@@ -60,7 +60,7 @@ export class CompanionController {
         const desktop = new DesktopSource();
         this._display = new NotificationDisplay({
             fireEvent: (type, data) => this._mobileApp.fireEvent(type, data),
-            icon: new Gio.FileIcon({file: Gio.File.new_for_path(`${extension.path}/icons/home-assistant-symbolic.svg`)}),
+            icon: new Gio.ThemedIcon({name: 'go-home-symbolic'}),
         });
         this._companion = new Companion({
             mobileApp: this._mobileApp,

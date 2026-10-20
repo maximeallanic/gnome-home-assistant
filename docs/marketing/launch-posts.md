@@ -24,8 +24,8 @@ used (code, docs, these posts). `[REPO]` is `https://github.com/maximeallanic/gn
 
 ## Home Assistant community forum, "Share your Projects"
 
-**Title:** GNOME Shell extension: Home Assistant chips in the top bar, a Quick Settings grid, and the computer as a
-mobile_app device
+**Title:** Hearth, a GNOME Shell extension: Home Assistant chips in the top bar, a Quick Settings grid, and the
+computer as a mobile_app device
 
 **Body:**
 
@@ -33,8 +33,8 @@ Hi all,
 
 [MOTIVATION]
 
-I made an unofficial GNOME Shell extension that brings Home Assistant into the GNOME desktop. It is version 0.1.0, a
-pre-release, for GNOME Shell 51 only.
+I made Hearth for Home Assistant, an unofficial GNOME Shell extension that brings Home Assistant into the GNOME
+desktop. It is version 0.1.0, a pre-release, for GNOME Shell 51 only.
 
 What it does:
 
@@ -77,13 +77,13 @@ Not affiliated with or endorsed by Home Assistant or the Open Home Foundation.
 
 ## r/homeassistant
 
-**Title:** I made a GNOME Shell extension: label an entity in Home Assistant, it shows up in the top bar
+**Title:** I made Hearth, a GNOME Shell extension: label an entity in Home Assistant, it shows up in the top bar
 
 **Body:**
 
 [MOTIVATION]
 
-It is an unofficial GNOME Shell 51 extension (MIT, pre-release 0.1.0):
+Hearth for Home Assistant is an unofficial GNOME Shell 51 extension (MIT, pre-release 0.1.0):
 
 - entities labelled `gnome-topbar` become top bar chips (state + icon; `gnome-topbar-alert` makes them red);
 - one template sensor labelled `gnome-grid` gives a Quick Settings grid: lights, scripts, sliders, cover position,
@@ -107,13 +107,13 @@ Disclosure: [AI USE]. Not affiliated with Home Assistant or the Open Home Founda
 
 Rewrite in your own words before posting (see the table above).
 
-**Title:** Home Assistant in the top bar and Quick Settings: an extension for GNOME 51
+**Title:** Hearth: Home Assistant in the top bar and Quick Settings, an extension for GNOME 51
 
 **Body:**
 
 [MOTIVATION]
 
-The extension adds chips next to the system status icons and a "Home" tile in Quick Settings with mini-tiles
+Hearth for Home Assistant adds chips next to the system status icons and a "Home" tile in Quick Settings with mini-tiles
 (toggles, choices, sliders, to-do items), with light and dark stylesheets that follow the system accent colour.
 What appears is decided in Home Assistant with labels, so the preferences never need a list of entities. The token
 is kept with libsecret.
@@ -128,15 +128,15 @@ GNOME-side details people may ask about:
 
 [REPO]
 
-Disclosure: [AI USE]
+Disclosure: [AI USE]. Unofficial, not affiliated with Home Assistant or the Open Home Foundation.
 
 ---
 
 ## Show HN
 
-**Title (72 characters):**
+**Title (80 characters, the limit):**
 
-> Show HN: A GNOME Shell extension that puts Home Assistant in the top bar
+> Show HN: Hearth, a GNOME Shell extension that puts Home Assistant in the top bar
 
 (Avoid "HA" in the title: the Home Assistant name guide asks for the name in full.)
 
@@ -161,7 +161,7 @@ sentences:
 
 ## Mastodon (under 500 characters)
 
-> I made an unofficial GNOME Shell extension for #HomeAssistant: label an entity and it becomes a chip in the top
+> I made Hearth, an unofficial GNOME Shell extension for #HomeAssistant: label an entity and it becomes a chip in the top
 > bar; one template sensor gives a Quick Settings grid (lights, sliders, to-do lists). Optionally the computer
 > registers as a mobile_app device: sensors, commands, notifications. No MQTT. Token in the keyring. GNOME 51 only,
 > pre-release, feedback welcome.
@@ -170,13 +170,13 @@ sentences:
 >
 > #GNOME #Linux #SmartHome #OpenSource
 
-About 430 characters as Mastodon counts them (every link counts as 23); the French version is about 470. Add `[AI USE]` in a reply or a
+About 440 characters as Mastodon counts them (every link counts as 23); the French version is about 480. Add `[AI USE]` in a reply or a
 content note if your instance or audience expects it, and alt text on the image, for example: "Top bar chips showing
 21.4° and a red chores count, and the Quick Settings Home grid with lights, blinds, heating and a to-do list."
 
 French version:
 
-> J'ai fait une extension GNOME Shell non officielle pour #HomeAssistant : posez une étiquette sur une entité, elle
+> J'ai fait Hearth, une extension GNOME Shell non officielle pour #HomeAssistant : posez une étiquette sur une entité, elle
 > devient une puce dans la barre du haut ; un capteur de modèle donne une grille dans les réglages rapides
 > (lumières, curseurs, listes de tâches). En option, l'ordinateur devient un appareil mobile_app : capteurs,
 > commandes, notifications. Sans MQTT. GNOME 51, préversion, retours bienvenus.

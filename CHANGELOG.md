@@ -6,6 +6,21 @@ All notable changes to this project are documented in this file. The format foll
 
 ## [Unreleased]
 
+### Changed
+
+- The extension is now called **Hearth for Home Assistant** (short: Hearth). The UUID, the GSettings schema and the
+  repository stay the same, so settings and the saved token are kept. New `mobile_app` registrations report this
+  name as the app name; an existing registration keeps "Home Assistant for GNOME" until it is made again.
+- Notifications use the Adwaita house icon (`go-home-symbolic`) instead of the Home Assistant logo glyph, which is no
+  longer shipped.
+- The metadata description says the project is unofficial and not affiliated with Home Assistant or the Open Home
+  Foundation.
+
+### Fixed
+
+- The screenshot runner passed `LC_ALL`, `LC_MESSAGES` or `LANGUAGE` from the calling shell to the preferences,
+  which overrode `--locale`: the French preferences capture was in English. It is taken again.
+
 ## [0.1.0] - 2026-10-20
 
 First public release, extracted from a private desktop setup. Pre-release: tested with unit tests against fake Home

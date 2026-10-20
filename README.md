@@ -1,4 +1,4 @@
-# Home Assistant for GNOME
+# Hearth for Home Assistant
 
 [![CI](https://github.com/maximeallanic/gnome-home-assistant/actions/workflows/ci.yml/badge.svg)](https://github.com/maximeallanic/gnome-home-assistant/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
@@ -9,8 +9,9 @@
 
 **Your Home Assistant home in the GNOME top bar and Quick Settings, and your computer as a Home Assistant device.**
 
-An unofficial GNOME Shell extension. Put a label on an entity in Home Assistant and it shows up on your desktop: no
-entity ids to type, no YAML for a first chip, no separate agent, no MQTT broker.
+Hearth is an unofficial GNOME Shell extension for Home Assistant, not affiliated with Home Assistant or the Open Home
+Foundation. Put a label on an entity in Home Assistant and it shows up on your desktop: no entity ids to type, no YAML
+for a first chip, no separate agent, no MQTT broker.
 
 <p align="center">
   <img src="docs/marketing/hero.png" width="760" alt="Three real captures side by side: two top bar chips (indoor temperature 21.4°, and a red alert chip with a broom and 2), the Quick Settings Home grid with the blinds open on Open and Close buttons and a position slider, and the same grid with the chores tile open on a to-do list">

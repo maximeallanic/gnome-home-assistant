@@ -1,4 +1,6 @@
-# Documentation
+# Hearth for Home Assistant: documentation
+
+An unofficial GNOME Shell extension, not affiliated with Home Assistant or the Open Home Foundation.
 
 | Page | What it covers |
 |---|---|

@@ -1,6 +1,6 @@
 # Contributing
 
-Thanks for helping. This extension runs inside GNOME Shell and talks to people's homes, so small, careful changes
+Thanks for helping. Hearth for Home Assistant runs inside GNOME Shell and talks to people's homes, so small, careful changes
 with a clean `disable()` and no surprise network traffic are what matter most.
 
 ## Ways to contribute

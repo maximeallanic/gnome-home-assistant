@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: gnome-home-assistant 0.1.0\n"
 "Report-Msgid-Bugs-To: https://github.com/maximeallanic/gnome-home-assistant/"
 "issues\n"
-"POT-Creation-Date: 2026-10-20 12:40+0200\n"
+"POT-Creation-Date: 2026-10-20 15:02+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -97,7 +97,6 @@ msgstr ""
 #: extension/home-assistant@maximeallanic.github.io/companion/companion.js:298
 #: extension/home-assistant@maximeallanic.github.io/companion/controller.js:57
 #: extension/home-assistant@maximeallanic.github.io/companion/notifications.js:66
-#: extension/home-assistant@maximeallanic.github.io/extension.js:191
 #: extension/home-assistant@maximeallanic.github.io/menu-lines.js:20
 #: extension/home-assistant@maximeallanic.github.io/prefs-connection.js:29
 msgid "Home Assistant"
@@ -124,7 +123,7 @@ msgstr ""
 
 #: extension/home-assistant@maximeallanic.github.io/companion/ha-package.js:55
 #, javascript-format
-msgid "Controls for the computer \"%s\" (Home Assistant for GNOME)."
+msgid "Controls for the computer \"%s\" (Hearth for Home Assistant)."
 msgstr ""
 
 #: extension/home-assistant@maximeallanic.github.io/companion/ha-package.js:56
@@ -246,7 +245,7 @@ msgid ""
 "the top bar."
 msgstr ""
 
-#: extension/home-assistant@maximeallanic.github.io/extension.js:197
+#: extension/home-assistant@maximeallanic.github.io/extension.js:198
 msgid "Open Settings"
 msgstr ""
 

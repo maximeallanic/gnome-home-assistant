@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Home Assistant for GNOME installer. Runs as your user (no root, except to install missing system packages when you
+# Hearth for Home Assistant installer. Runs as your user (no root, except to install missing system packages when you
 # agree), installs the GNOME Shell extension for your user only, and is undone by uninstall.sh.
 #
 #   curl -fsSL https://raw.githubusercontent.com/maximeallanic/gnome-home-assistant/main/install.sh | bash
@@ -202,7 +202,7 @@ fi
 
 # --- Install ------------------------------------------------------------------------------------------------------
 
-step "Installing $UUID for $(id -un)"
+step "Installing Hearth for Home Assistant ($UUID) for $(id -un)"
 run gnome-extensions install --force "$ZIP"
 if ((ENABLE)); then
     # A Shell that has never seen the extension cannot enable it before the next login (Wayland cannot restart the

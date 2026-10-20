@@ -2,7 +2,8 @@
 
 ### Is it an official Home Assistant project?
 
-No. It is an independent GNOME Shell extension that talks to Home Assistant's public WebSocket and REST APIs.
+No. Hearth for Home Assistant is an unofficial community project, not affiliated with Home Assistant or the Open
+Home Foundation: an independent GNOME Shell extension that talks to Home Assistant's public WebSocket and REST APIs.
 "Home Assistant" is a trademark of the Open Home Foundation; it is used here only to say what the extension connects
 to.
 
@@ -31,10 +32,11 @@ itself translates (`on`, `open`, `heat`...). Text written by a template is yours
 It keeps one WebSocket open and receives only the states of the entities it shows. The companion polls CPU, memory
 and hardware sensors every 30 seconds and sends values only when they change.
 
-### Can I use Home Assistant Cloud (Nabu Casa) or a reverse proxy?
+### Can I use Home Assistant Link (formerly Home Assistant Cloud, by Nabu Casa) or a reverse proxy?
 
-Any address that serves Home Assistant's API over `http(s)://` with WebSocket support works, including a Nabu Casa
-remote URL. The companion uses the address you entered; it does not use cloudhooks.
+Any address that serves Home Assistant's API over `http(s)://` with WebSocket support works, including the remote URL
+of Home Assistant Link. Nabu Casa announced in October 2026 that Home Assistant Cloud becomes Home Assistant Link,
+officially from Home Assistant 2026.12; what the service does stays the same. The companion uses the address you entered; it does not use cloudhooks.
 
 ### Why does it run on the lock screen?
 

@@ -81,7 +81,7 @@ runAsync('mobile-app', async () => {
     const e = fake.registrations[0];
     eq([e.device_name, e.app_id, e.app_name, e.os_name, e.supports_encryption, e.app_data.push_websocket_channel,
         e.manufacturer, e.model, typeof e.device_id], ['Computer', 'io.github.maximeallanic.GnomeHomeAssistant',
-        'Home Assistant for GNOME', 'Debian GNU/Linux', false, true, 'ACME', 'Laptop 13', 'string'], 'registration body');
+        'Hearth for Home Assistant', 'Debian GNU/Linux', false, true, 'ACME', 'Laptop 13', 'string'], 'registration body');
     eq(fake.authorization[0], 'Bearer token', 'token sent');
     eq(a.webhookId, 'wh1', 'webhook kept');
     eq(readRegistration(path, url), {url, device_id: e.device_id, webhook_id: 'wh1'}, 'registration written');

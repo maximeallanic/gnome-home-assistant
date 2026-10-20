@@ -1,4 +1,4 @@
-# Example package for Home Assistant for GNOME: two top bar chips and a Quick Settings grid.
+# Example package for Hearth for Home Assistant: two top bar chips and a Quick Settings grid.
 #
 # 1. Replace the example entity ids (light.living_room, sensor.indoor_temperature...) with yours.
 # 2. Save this file as packages/gnome_topbar.yaml in the Home Assistant configuration folder. Packages must be enabled

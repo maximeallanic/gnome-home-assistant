@@ -61,12 +61,16 @@ if [[ "${1:-}" != "--inner" ]]; then
     }
     trap remove_tmp EXIT
     "$REPO/scripts/pack.sh" --out "$TMP/dist" >/dev/null || exit 1
+    LOCALE_UNSET=()
+    for v in $(compgen -e); do [[ "$v" =~ ^(LANG|LANGUAGE|LC_[A-Z]+)$ ]] && LOCALE_UNSET+=(-u "$v"); done
     code=0
     for scheme in "${SCHEMES[@]}"; do
         mkdir -m 0700 "$TMP/$scheme" "$TMP/$scheme/run" || exit 2
         # Set BEFORE dbus-run-session: services activated on the private bus (dconf-service, the keyring, the
         # Extensions app for the preferences) inherit the bus daemon's environment, so they stay private too.
-        env -u WAYLAND_DISPLAY -u DISPLAY XDG_RUNTIME_DIR="$TMP/$scheme/run" XDG_CONFIG_HOME="$TMP/$scheme/config" \
+        # The locale as well: a LC_ALL, LC_MESSAGES or LANGUAGE of the calling shell would otherwise reach the
+        # preferences (started by D-Bus activation) and override LANG, so they would not follow --locale.
+        env -u WAYLAND_DISPLAY -u DISPLAY "${LOCALE_UNSET[@]}" LANG="$LOCALE" XDG_RUNTIME_DIR="$TMP/$scheme/run" XDG_CONFIG_HOME="$TMP/$scheme/config" \
             XDG_DATA_HOME="$TMP/$scheme/data" XDG_CACHE_HOME="$TMP/$scheme/cache" XDG_STATE_HOME="$TMP/$scheme/state" \
             GHA_SHOTS_REAL_BUS="${DBUS_SESSION_BUS_ADDRESS:-}" GSETTINGS_BACKEND=dconf GHA_SHOTS_THEME="$THEME_RESOURCE" \
             dbus-run-session -- bash "$HERE/run.sh" --inner "$TMP/$scheme" "$TMP/dist" "$OUT" "$scheme" "$LOCALE" "$SCALE" \
@@ -172,14 +176,17 @@ K
 dconf compile "$XDG_CONFIG_HOME/dconf/user" "$DIR/dconf-src" || fail "dconf compile failed"
 
 DISPLAY_NAME="gha-shots-$$"
-LOCALE_ENV=()
-for v in $(compgen -e); do [[ "$v" =~ ^(LANG|LANGUAGE|LC_[A-Z]+)$ ]] && LOCALE_ENV+=(-u "$v"); done
-env "${LOCALE_ENV[@]}" LANG="$LOCALE" gnome-shell --headless --unsafe-mode --wayland \
+# The outer part left LANG alone in the environment, which the Shell and every D-Bus activated service inherit.
+for v in $(compgen -e); do
+    [[ "$v" =~ ^(LANGUAGE|LC_[A-Z]+)$ ]] && fail "$v is set: it would override LANG=$LOCALE"
+done
+[[ "${LANG:-}" == "$LOCALE" ]] || fail "LANG is '${LANG:-}', expected $LOCALE"
+gnome-shell --headless --unsafe-mode --wayland \
     --virtual-monitor "$((1440 * SCALE))x$((900 * SCALE))" --wayland-display "$DISPLAY_NAME" >"$LOG" 2>&1 &
 SHELL_PID=$!
 # The preferences window is a Wayland client of the nested Shell, started by D-Bus activation.
 # No accessibility bus in this session: without GTK_A11Y=none GTK fails to register the application.
-dbus-update-activation-environment WAYLAND_DISPLAY="$DISPLAY_NAME" LANG="$LOCALE" GTK_A11Y=none
+dbus-update-activation-environment WAYLAND_DISPLAY="$DISPLAY_NAME" GTK_A11Y=none
 
 ev() { # JavaScript -> its result, evaluated in the nested Shell
     local reply

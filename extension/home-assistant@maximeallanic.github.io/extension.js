@@ -188,8 +188,9 @@ export default class HomeAssistantExtension extends Extension {
 
     _notifyWithSettings(title, body) {
         if (!this._messageSource) {
-            this._messageSource = new MessageTray.Source({title: _('Home Assistant'),
-                icon: new Gio.FileIcon({file: Gio.File.new_for_path(`${this.path}/icons/home-assistant-symbolic.svg`)})});
+            // The extension speaks here, so the source carries its own name; the house is Adwaita's, not a brand logo.
+            this._messageSource = new MessageTray.Source({title: this.metadata.name,
+                icon: new Gio.ThemedIcon({name: 'go-home-symbolic'})});
             this._messageSource.connect('destroy', () => (this._messageSource = null));
             Main.messageTray.add(this._messageSource);
         }
