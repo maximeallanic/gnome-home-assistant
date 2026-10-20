@@ -26,7 +26,7 @@ SUPPORTED_SHELL=(51)
 # Pinned release fetched when there is no clone. scripts/release.sh fills both values in a release commit; while
 # RELEASE_SHA256 is empty, the download refuses to run and points to a clone instead.
 RELEASE_VERSION=0.1.0
-RELEASE_SHA256=''
+RELEASE_SHA256='d3689d5b286c0f68fed16482650351676cd2493a849804295aaed3ab75e51fb8'
 RELEASE_URL="https://github.com/maximeallanic/gnome-home-assistant/releases/download/v${RELEASE_VERSION}/home-assistant@maximeallanic.github.io.shell-extension.zip"
 
 ZIP=""
