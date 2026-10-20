@@ -1,0 +1,84 @@
+# Example package for Home Assistant for GNOME: two top bar chips and a Quick Settings grid.
+#
+# 1. Replace the example entity ids (light.living_room, sensor.indoor_temperature...) with yours.
+# 2. Save this file as packages/gnome_topbar.yaml in the Home Assistant configuration folder. Packages must be enabled
+#    once in configuration.yaml:
+#        homeassistant:
+#          packages: !include_dir_named packages
+# 3. Restart Home Assistant (later edits only need Developer tools > YAML > Template entities).
+# 4. In Settings > Areas, labels & zones > Labels, create the labels "gnome-topbar", "gnome-topbar-alert" and
+#    "gnome-grid" (or the names you chose in the extension preferences), then put:
+#      - "gnome-topbar" on sensor.gnome_indoor and sensor.gnome_chores (and on any other entity you want as a chip);
+#      - "gnome-topbar-alert" on sensor.gnome_chores as well (it is then shown as an alert chip);
+#      - "gnome-grid" on sensor.gnome_home_grid only.
+#
+# Every text below is written by you, in your own language: the extension shows template text exactly as Home
+# Assistant sends it. A mini-tile without "text" shows its entity's state, translated by Home Assistant into the
+# language of the desktop session ("On", "Allumé", "Encendido"...); a plain number with a unit_of_measurement is
+# formatted for the desktop's locale.
+#
+# The grid's "tiles" attribute changes often and has no history value: keep it out of the recorder.
+recorder:
+  exclude:
+    entities:
+      - sensor.gnome_home_grid
+
+template:
+  - sensor:
+      # Chip contract: the state is the chip text (an empty state hides the chip) and the "icon" attribute its icon.
+      # Chips are sorted by name; a "1 · " prefix orders them and is removed from display. Chips only display: what
+      # you want to switch or run goes in the grid below.
+      - name: "1 · Indoor"
+        unique_id: gnome_indoor
+        default_entity_id: sensor.gnome_indoor
+        state: >
+          {% set t = states('sensor.indoor_temperature') %}
+          {{ (t | float | round(1)) ~ '°' if t | is_number else '' }}
+        attributes:
+          icon: >
+            {{ 'mdi:radiator' if state_attr('climate.living_room', 'hvac_action') == 'heating'
+               else 'mdi:home-thermometer' }}
+
+      - name: "2 · Chores"
+        unique_id: gnome_chores
+        default_entity_id: sensor.gnome_chores
+        state: >
+          {% set n = states('todo.chores') | int(0) %}{{ n if n > 0 else '' }}
+        attributes:
+          icon: mdi:broom
+
+      # Grid contract: the entity name is the tile title, its state the subtitle, and its "tiles" attribute the list
+      # of mini-tiles. Keys of a mini-tile (see docs/grid.md):
+      #   id (required, unique), entity (required), name, icon, text, action (an entity id, or none),
+      #   wide (true: spans two columns), choices (entity ids, or {entity, name, active}), details (entity ids),
+      #   slider (a light, cover, number or input_number).
+      - name: "Home"
+        unique_id: gnome_home_grid
+        default_entity_id: sensor.gnome_home_grid
+        state: >
+          {{ [('Lights', is_state('light.living_room', 'on') or is_state('light.office', 'on')),
+              ('Blinds', states('cover.living_room_blinds') in ['open', 'opening', 'closing'])]
+             | selectattr(1) | map(attribute=0) | join(' · ') }}
+        attributes:
+          icon: mdi:home
+          tiles: >
+            {% set office = states('light.office') %}
+            {% set n = states('todo.chores') %}
+            {{ [
+              {'id': 'office_light', 'entity': 'light.office', 'name': 'Office', 'icon': 'mdi:desk-lamp',
+               'slider': 'light.office',
+               'text': ((state_attr('light.office', 'brightness') | int(0) / 2.55) | round(0) | int) ~ ' %'
+                       if office == 'on' else ''},
+              {'id': 'living_room_light', 'entity': 'light.living_room', 'name': 'Living room', 'icon': 'mdi:sofa'},
+              {'id': 'blinds', 'entity': 'cover.living_room_blinds', 'name': 'Blinds', 'icon': 'mdi:blinds',
+               'action': 'none', 'slider': 'cover.living_room_blinds',
+               'choices': [{'entity': 'script.open_blinds', 'name': 'Open'},
+                           {'entity': 'script.close_blinds', 'name': 'Close'}]},
+              {'id': 'heating', 'entity': 'climate.living_room', 'name': 'Heating', 'icon': 'mdi:radiator',
+               'action': 'none',
+               'details': ['climate.living_room', 'binary_sensor.living_room_window']},
+              {'id': 'chores', 'entity': 'todo.chores', 'name': 'Chores', 'icon': 'mdi:broom', 'action': 'none',
+               'wide': true,
+               'text': '' if not n | is_number else 'nothing to do' if n | int == 0 else n ~ ' to do',
+               'details': ['todo.chores']},
+            ] }}

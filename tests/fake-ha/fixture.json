@@ -1,0 +1,258 @@
+{
+ "_comment": "A made-up home for tests and screenshots. The gnome_* sensors hold the values that ha/packages/gnome_topbar.example.yaml renders for the other states below.",
+ "token": "fake-token-for-tests",
+ "config": {
+  "location_name": "Demo Home",
+  "version": "2026.10.0",
+  "unit_system": {
+   "temperature": "°C"
+  }
+ },
+ "labels": [
+  {
+   "label_id": "gnome_topbar",
+   "name": "gnome-topbar"
+  },
+  {
+   "label_id": "gnome_topbar_alert",
+   "name": "gnome-topbar-alert"
+  },
+  {
+   "label_id": "gnome_grid",
+   "name": "gnome-grid"
+  }
+ ],
+ "entities": [
+  {
+   "entity_id": "sensor.gnome_indoor",
+   "name": null,
+   "original_name": "1 · Indoor",
+   "icon": null,
+   "labels": [
+    "gnome_topbar"
+   ]
+  },
+  {
+   "entity_id": "sensor.gnome_chores",
+   "name": null,
+   "original_name": "2 · Chores",
+   "icon": null,
+   "labels": [
+    "gnome_topbar",
+    "gnome_topbar_alert"
+   ]
+  },
+  {
+   "entity_id": "sensor.gnome_home_grid",
+   "name": null,
+   "original_name": "Home",
+   "icon": null,
+   "labels": [
+    "gnome_grid"
+   ]
+  }
+ ],
+ "states": {
+  "sensor.gnome_indoor": {
+   "s": "21.4°",
+   "a": {
+    "friendly_name": "1 · Indoor",
+    "icon": "mdi:radiator"
+   }
+  },
+  "sensor.gnome_chores": {
+   "s": "2",
+   "a": {
+    "friendly_name": "2 · Chores",
+    "icon": "mdi:broom"
+   }
+  },
+  "sensor.gnome_home_grid": {
+   "s": "Lights · Blinds",
+   "a": {
+    "friendly_name": "Home",
+    "icon": "mdi:home",
+    "tiles": [
+     {
+      "id": "office_light",
+      "entity": "light.office",
+      "name": "Office",
+      "icon": "mdi:desk-lamp",
+      "slider": "light.office",
+      "text": "70 %"
+     },
+     {
+      "id": "living_room_light",
+      "entity": "light.living_room",
+      "name": "Living room",
+      "icon": "mdi:sofa"
+     },
+     {
+      "id": "blinds",
+      "entity": "cover.living_room_blinds",
+      "name": "Blinds",
+      "icon": "mdi:blinds",
+      "action": "none",
+      "slider": "cover.living_room_blinds",
+      "choices": [
+       {
+        "entity": "script.open_blinds",
+        "name": "Open"
+       },
+       {
+        "entity": "script.close_blinds",
+        "name": "Close"
+       }
+      ]
+     },
+     {
+      "id": "heating",
+      "entity": "climate.living_room",
+      "name": "Heating",
+      "icon": "mdi:radiator",
+      "action": "none",
+      "details": [
+       "climate.living_room",
+       "binary_sensor.living_room_window"
+      ]
+     },
+     {
+      "id": "chores",
+      "entity": "todo.chores",
+      "name": "Chores",
+      "icon": "mdi:broom",
+      "action": "none",
+      "wide": true,
+      "text": "2 to do",
+      "details": [
+       "todo.chores"
+      ]
+     }
+    ]
+   }
+  },
+  "sensor.indoor_temperature": {
+   "s": "21.4",
+   "a": {
+    "friendly_name": "Indoor temperature",
+    "unit_of_measurement": "°C",
+    "device_class": "temperature"
+   }
+  },
+  "light.office": {
+   "s": "on",
+   "a": {
+    "friendly_name": "Office light",
+    "brightness": 178,
+    "supported_color_modes": [
+     "brightness"
+    ]
+   }
+  },
+  "light.living_room": {
+   "s": "off",
+   "a": {
+    "friendly_name": "Living room light",
+    "supported_color_modes": [
+     "onoff"
+    ]
+   }
+  },
+  "cover.living_room_blinds": {
+   "s": "open",
+   "a": {
+    "friendly_name": "Living room blinds",
+    "current_position": 100,
+    "supported_features": 15
+   }
+  },
+  "climate.living_room": {
+   "s": "heat",
+   "a": {
+    "friendly_name": "Living room heating",
+    "hvac_action": "heating",
+    "current_temperature": 21.4,
+    "temperature": 21,
+    "hvac_modes": [
+     "off",
+     "heat"
+    ]
+   }
+  },
+  "binary_sensor.living_room_window": {
+   "s": "off",
+   "a": {
+    "friendly_name": "Living room window",
+    "device_class": "window"
+   }
+  },
+  "todo.chores": {
+   "s": "2",
+   "a": {
+    "friendly_name": "Chores"
+   }
+  },
+  "script.open_blinds": {
+   "s": "off",
+   "a": {
+    "friendly_name": "Open the blinds"
+   }
+  },
+  "script.close_blinds": {
+   "s": "off",
+   "a": {
+    "friendly_name": "Close the blinds"
+   }
+  }
+ },
+ "todo": {
+  "todo.chores": [
+   {
+    "uid": "1",
+    "summary": "Water the plants",
+    "status": "needs_action"
+   },
+   {
+    "uid": "2",
+    "summary": "Take the bins out",
+    "status": "needs_action"
+   },
+   {
+    "uid": "3",
+    "summary": "Descale the kettle",
+    "status": "completed"
+   }
+  ]
+ },
+ "_translations_comment": "Made-up excerpts in the shape of Home Assistant's frontend/get_translations answer (category entity_component). Any other language is answered in English, as Home Assistant does.",
+ "translations": {
+  "en": {
+   "component.light.entity_component._.state.on": "On",
+   "component.light.entity_component._.state.off": "Off",
+   "component.climate.entity_component._.state.heat": "Heat",
+   "component.climate.entity_component._.state.off": "Off",
+   "component.cover.entity_component._.state.open": "Open",
+   "component.cover.entity_component._.state.closed": "Closed",
+   "component.binary_sensor.entity_component._.state.on": "On",
+   "component.binary_sensor.entity_component._.state.off": "Off",
+   "component.binary_sensor.entity_component.window.state.on": "Open",
+   "component.binary_sensor.entity_component.window.state.off": "Closed",
+   "component.script.entity_component._.state.on": "On",
+   "component.script.entity_component._.state.off": "Off"
+  },
+  "fr": {
+   "component.light.entity_component._.state.on": "Allumé",
+   "component.light.entity_component._.state.off": "Éteint",
+   "component.climate.entity_component._.state.heat": "Chauffe",
+   "component.climate.entity_component._.state.off": "Arrêt",
+   "component.cover.entity_component._.state.open": "Ouvert",
+   "component.cover.entity_component._.state.closed": "Fermé",
+   "component.binary_sensor.entity_component._.state.on": "Activé",
+   "component.binary_sensor.entity_component._.state.off": "Désactivé",
+   "component.binary_sensor.entity_component.window.state.on": "Ouverte",
+   "component.binary_sensor.entity_component.window.state.off": "Fermée",
+   "component.script.entity_component._.state.on": "Activé",
+   "component.script.entity_component._.state.off": "Désactivé"
+  }
+ }
+}

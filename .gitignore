@@ -1,0 +1,10 @@
+node_modules/
+dist/
+*.zip
+__pycache__/
+*.pyc
+# Compiled catalogues and schemas (built by scripts/pack.sh and install.sh)
+extension/*/locale/
+extension/*/schemas/gschemas.compiled
+# Screenshot runner artefacts
+tests/screenshots/out/

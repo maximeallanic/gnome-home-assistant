@@ -1,0 +1,56 @@
+name: Bug report
+description: Something does not work or looks wrong.
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Run `./verify.sh --online` (or `curl -fsSL https://raw.githubusercontent.com/maximeallanic/gnome-home-assistant/main/verify.sh | bash -s -- --online`)
+        first: it finds most setup problems. Never paste your access token, your Home Assistant address if it is
+        public, or anything from `registration.json`.
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      options: [Top bar chips, Quick Settings grid, Keyboard shortcuts, This computer (mobile_app companion), Preferences, Installer / uninstaller, Not sure]
+    validations: {required: true}
+  - type: input
+    id: version
+    attributes:
+      label: Extension version
+      description: Shown by `gnome-extensions info home-assistant@maximeallanic.github.io`.
+    validations: {required: true}
+  - type: input
+    id: shell
+    attributes:
+      label: GNOME Shell version and distribution
+      description: Output of `gnome-shell --version`, and your distribution and its version.
+    validations: {required: true}
+  - type: input
+    id: ha
+    attributes:
+      label: Home Assistant version
+      description: Settings > About in Home Assistant.
+    validations: {required: true}
+  - type: dropdown
+    id: session
+    attributes:
+      label: Session type
+      options: [Wayland, X11]
+    validations: {required: true}
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened, and what did you expect?
+    validations: {required: true}
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: For a chip or grid problem, include the template (YAML) of the entity, with your own entity ids replaced if you prefer.
+  - type: textarea
+    id: log
+    attributes:
+      label: Shell log
+      description: Output of `journalctl --user -b -o cat /usr/bin/gnome-shell | grep -i home-assistant`, a few minutes around the problem.
+      render: text

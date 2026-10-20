@@ -1,0 +1,43 @@
+/* Layout: identical in stylesheet-dark.css and stylesheet-light.css (checked by tests/run.sh). The Shell loads the
+   file of the current style (GNOME 47+). A theme can restyle every class below; see docs/theming.md. */
+/* LAYOUT START */
+.ha-indicator { spacing: 6px; }
+.ha-chip { spacing: 4px; transition-duration: 150ms; }
+/* Alert chip: one height whatever it holds, centred in the 32 px button; 24 px stays on whole physical pixels at the
+   scales 1, 1.333 and 1.5. */
+.ha-chip-alert { height: 24px; padding: 0 8px; border-radius: 999px; }
+/* Grid tile menu (grid-menu.js): two-column grid of mini-tiles, then the unfolded detail. */
+.ha-grid { spacing-rows: 8px; spacing-columns: 8px; padding: 4px 0; }
+.ha-tile { border-radius: 16px; padding: 12px; transition-duration: 150ms; }
+.ha-tile-body { spacing: 8px; }
+.ha-tile-top { spacing: 8px; }
+.ha-tile-icon { icon-size: 20px; }
+.ha-tile-arrow { border-radius: 999px; padding: 2px; }
+.ha-tile-arrow StIcon { icon-size: 16px; }
+.ha-choice-group { spacing: 2px; }
+.ha-choice { padding: 8px 12px; border-radius: 4px; transition-duration: 150ms; }
+/* Segmented choices: the outer corners round, on the side where the row starts (St lays a box out right to left in
+   RTL, so the first child is on the right), like the Shell's .quick-toggle-has-menu. */
+.ha-choice:ltr:first-child { border-radius: 20px 4px 4px 20px; }
+.ha-choice:rtl:first-child { border-radius: 4px 20px 20px 4px; }
+.ha-choice:ltr:last-child { border-radius: 4px 20px 20px 4px; }
+.ha-choice:rtl:last-child { border-radius: 20px 4px 4px 20px; }
+.ha-choice:first-child:last-child { border-radius: 20px; }
+.ha-slider-row { spacing: 12px; }
+/* LAYOUT END */
+
+/* Colours (light style): the Shell's own neutral surfaces and the system accent colour. */
+.ha-chip-alert { background-color: #c01c28; color: #ffffff; }
+.ha-line-value, .ha-slider-value { color: rgba(0, 0, 0, 0.6); }
+.ha-tile-on { background-color: -st-accent-color; color: -st-accent-fg-color; }
+.ha-tile-on:hover { background-color: -st-accent-color; box-shadow: inset 0 0 0 100px rgba(0, 0, 0, 0.08); }
+.ha-tile-off { background-color: rgba(0, 0, 0, 0.08); color: rgba(0, 0, 0, 0.87); }
+.ha-tile-off:hover { background-color: rgba(0, 0, 0, 0.12); }
+.ha-tile-unavailable { background-color: rgba(0, 0, 0, 0.03); color: rgba(0, 0, 0, 0.38); }
+.ha-tile-open { box-shadow: inset 0 0 0 2px rgba(0, 0, 0, 0.25); }
+.ha-tile-arrow:hover { background-color: rgba(0, 0, 0, 0.12); }
+.ha-tile:focus, .ha-choice:focus, .ha-tile-arrow:focus { box-shadow: inset 0 0 0 2px -st-accent-color; }
+.ha-choice { background-color: rgba(0, 0, 0, 0.08); color: rgba(0, 0, 0, 0.87); }
+.ha-choice:hover { background-color: rgba(0, 0, 0, 0.12); }
+.ha-choice:checked { background-color: -st-accent-color; color: -st-accent-fg-color; }
+.ha-choice:insensitive { color: rgba(0, 0, 0, 0.38); }

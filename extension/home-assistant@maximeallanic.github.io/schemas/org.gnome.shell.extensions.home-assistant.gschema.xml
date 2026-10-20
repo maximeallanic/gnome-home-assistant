@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemalist>
+  <schema id="org.gnome.shell.extensions.home-assistant" path="/org/gnome/shell/extensions/home-assistant/">
+    <key name="url" type="s">
+      <default>''</default>
+      <summary>Home Assistant address</summary>
+      <description>Base URL of the Home Assistant server, for example https://homeassistant.local:8123. The access token is not stored here: it is kept in the keyring.</description>
+    </key>
+    <key name="credentials-revision" type="i">
+      <default>0</default>
+      <summary>Access token revision</summary>
+      <description>Changed by the preferences each time the access token in the keyring is saved or removed, so that the extension reads it again. Holds no secret.</description>
+    </key>
+    <key name="topbar-label" type="s">
+      <default>'gnome-topbar'</default>
+      <summary>Top bar label</summary>
+      <description>Home Assistant label of the entities shown as chips in the top bar.</description>
+    </key>
+    <key name="alert-label" type="s">
+      <default>'gnome-topbar-alert'</default>
+      <summary>Alert label</summary>
+      <description>Home Assistant label that, added to a top bar entity, shows its chip as an alert.</description>
+    </key>
+    <key name="grid-label" type="s">
+      <default>'gnome-grid'</default>
+      <summary>Grid label</summary>
+      <description>Home Assistant label of the entity whose "tiles" attribute describes the Quick Settings grid.</description>
+    </key>
+    <key name="download-icons" type="b">
+      <default>true</default>
+      <summary>Download Material Design Icons</summary>
+      <description>Download the mdi: icons used by Home Assistant from the jsDelivr CDN (once per icon, then cached). When off, only the icons shipped with the extension and those already cached are shown.</description>
+    </key>
+    <key name="companion-enabled" type="b">
+      <default>false</default>
+      <summary>Register this computer in Home Assistant</summary>
+      <description>When on, the computer is registered as a mobile_app device: it reports sensors, receives commands and shows notifications.</description>
+    </key>
+    <key name="device-name" type="s">
+      <default>''</default>
+      <summary>Device name</summary>
+      <description>Name of this computer in Home Assistant, used when it is registered. Empty: the host name.</description>
+    </key>
+    <key name="companion-snapshot" type="s">
+      <default>''</default>
+      <summary>Companion entities, for the preferences</summary>
+      <description>JSON {"deviceName", "notifyService", "notifyVerified", "entities": {sensor id: entity_id}} written by the extension once the computer is registered; the preferences generate the Home Assistant package from it.</description>
+    </key>
+    <key name="shortcuts" type="s">
+      <default>'[]'</default>
+      <summary>Keyboard shortcuts for mini-tiles</summary>
+      <description>JSON list of {"tile": mini-tile id, "choice": entity_id of one of its choices or null, "accel": accelerator}. Edited in the extension preferences.</description>
+    </key>
+    <key name="grid-snapshot" type="s">
+      <default>'[]'</default>
+      <summary>Current grid, for the preferences</summary>
+      <description>JSON list of {"id", "name", "hasAction", "choices": [{"entityId", "name"}]} written by the extension from the Home Assistant grid. hasAction is false for a mini-tile whose action is "none".</description>
+    </key>
+    <key name="shortcut-conflicts" type="as">
+      <default>[]</default>
+      <summary>Shortcuts that could not be activated</summary>
+      <description>One JSON array [tile, choice or null, accel] per entry of "shortcuts" whose accelerator the Shell refused to grab, written by the extension: already taken by another shortcut, already used by an earlier entry, or not a valid accelerator.</description>
+    </key>
+  </schema>
+</schemalist>

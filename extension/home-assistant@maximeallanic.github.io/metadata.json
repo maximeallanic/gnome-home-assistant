@@ -1,0 +1,16 @@
+{
+  "uuid": "home-assistant@maximeallanic.github.io",
+  "name": "Home Assistant for GNOME",
+  "description": "Home Assistant in the top bar and Quick Settings. Entities you label in Home Assistant become chips in the top bar, and one labelled entity describes a grid of tiles in Quick Settings (lights, switches, scripts, sliders, to-do lists), with optional keyboard shortcuts. Optionally registers this computer as a Home Assistant mobile_app device: sensors (lock, activity, volume, battery...), commands from automations, and notifications. It stays active on the lock screen only for these sensors and commands; chips and tiles are hidden there. The access token is kept in the keyring. Material Design Icons are downloaded from cdn.jsdelivr.net the first time they are shown (can be turned off). The preferences copy the generated Home Assistant package to the clipboard when you press Copy; nothing else touches the clipboard.",
+  "shell-version": [
+    "51"
+  ],
+  "session-modes": [
+    "user",
+    "unlock-dialog"
+  ],
+  "url": "https://github.com/maximeallanic/gnome-home-assistant",
+  "version-name": "0.1.0",
+  "gettext-domain": "home-assistant@maximeallanic.github.io",
+  "settings-schema": "org.gnome.shell.extensions.home-assistant"
+}

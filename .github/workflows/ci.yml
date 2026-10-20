@@ -1,0 +1,66 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_call:   # reused by the release workflow
+
+permissions:
+  contents: read
+
+jobs:
+  lint:
+    name: ESLint (GJS)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npx eslint .
+
+  shellcheck:
+    name: ShellCheck
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - name: Run shellcheck on every shell script
+        run: git ls-files -z '*.sh' | xargs -0 shellcheck -x
+
+  test:
+    name: Unit, integration and static checks
+    runs-on: ubuntu-latest
+    # The extension targets GNOME Shell 51: Ubuntu's gjs and GNOME Shell are too old for the tests.
+    container: debian:testing
+    steps:
+      - name: Install GJS, GNOME Shell, libsecret, libsoup and gettext
+        run: |
+          apt-get update
+          apt-get install -y --no-install-recommends ca-certificates git gjs gir1.2-girepository-3.0 \
+              gnome-shell gir1.2-secret-1 gir1.2-soup-3.0 gettext python3 python3-yaml locales-all
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - name: Run the headless tests
+        run: |
+          git config --global --add safe.directory "$GITHUB_WORKSPACE"
+          tests/run.sh
+
+  pack:
+    name: Pack for extensions.gnome.org
+    runs-on: ubuntu-latest
+    container: debian:testing
+    steps:
+      - name: Install gnome-extensions and gettext
+        run: |
+          apt-get update
+          apt-get install -y --no-install-recommends ca-certificates git gnome-shell gettext python3
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - run: scripts/pack.sh
+      - name: Check the zip
+        run: python3 tests/check_packs.py dist
+      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: extension-zip
+          path: dist/*.zip

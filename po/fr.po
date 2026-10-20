@@ -1,0 +1,703 @@
+# French translation of Home Assistant for GNOME.
+# Copyright (c) 2026 Maxime Allanic
+# This file is distributed under the same license as the gnome-home-assistant package (MIT).
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: gnome-home-assistant 0.1.0\n"
+"Report-Msgid-Bugs-To: https://github.com/maximeallanic/gnome-home-assistant/"
+"issues\n"
+"POT-Creation-Date: 2026-10-20 12:33+0200\n"
+"PO-Revision-Date: 2026-10-20 12:00+0200\n"
+"Last-Translator: Maxime Allanic\n"
+"Language-Team: French\n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: extension/home-assistant@maximeallanic.github.io/companion/actions.js:31
+msgid "no audio output"
+msgstr "aucune sortie audio"
+
+#: extension/home-assistant@maximeallanic.github.io/companion/actions.js:54
+msgid "global brightness unavailable"
+msgstr "luminosité globale indisponible"
+
+#: extension/home-assistant@maximeallanic.github.io/companion/actions.js:59
+msgid "no keyboard backlight"
+msgstr "pas de rétroéclairage du clavier"
+
+#: extension/home-assistant@maximeallanic.github.io/companion/actions.js:71
+msgid "Caffeine extension not installed"
+msgstr "extension Caffeine non installée"
+
+#: extension/home-assistant@maximeallanic.github.io/companion/actions.js:83
+msgid "screen lock unavailable"
+msgstr "verrouillage de l’écran indisponible"
+
+#: extension/home-assistant@maximeallanic.github.io/companion/actions.js:89
+msgid "no media player"
+msgstr "aucun lecteur multimédia"
+
+#: extension/home-assistant@maximeallanic.github.io/companion/actions.js:96
+#, javascript-format
+msgid "unknown app: %s"
+msgstr "application inconnue : %s"
+
+#: extension/home-assistant@maximeallanic.github.io/companion/actions.js:104
+#, javascript-format
+msgid "unhandled command: %s"
+msgstr "commande non gérée : %s"
+
+#: extension/home-assistant@maximeallanic.github.io/companion/commands.js:27
+#, javascript-format
+msgid "%s must be a number from 0 to 100"
+msgstr "%s doit être un nombre de 0 à 100"
+
+#: extension/home-assistant@maximeallanic.github.io/companion/commands.js:33
+#, javascript-format
+msgid "%s must be a number from 1 to 50"
+msgstr "%s doit être un nombre de 1 à 50"
+
+#: extension/home-assistant@maximeallanic.github.io/companion/commands.js:37
+#: extension/home-assistant@maximeallanic.github.io/companion/commands.js:68
+#: extension/home-assistant@maximeallanic.github.io/companion/commands.js:73
+#, javascript-format
+msgid "%s must be one of %s"
+msgstr "%s doit valoir l’une de ces valeurs : %s"
+
+#: extension/home-assistant@maximeallanic.github.io/companion/commands.js:74
+#, javascript-format
+msgid "%s must be an http or https address"
+msgstr "%s doit être une adresse http ou https"
+
+#: extension/home-assistant@maximeallanic.github.io/companion/commands.js:76
+#, javascript-format
+msgid "%s must be a .desktop file ID"
+msgstr "%s doit être un identifiant de fichier .desktop"
+
+#: extension/home-assistant@maximeallanic.github.io/companion/commands.js:86
+#, javascript-format
+msgid "unknown command: %s"
+msgstr "commande inconnue : %s"
+
+#: extension/home-assistant@maximeallanic.github.io/companion/commands.js:92
+#, javascript-format
+msgid "%s is not allowed while the screen is locked"
+msgstr "%s n’est pas permise quand l’écran est verrouillé"
+
+#: extension/home-assistant@maximeallanic.github.io/companion/companion.js:14
+msgid "Last contact"
+msgstr "Dernier contact"
+
+#: extension/home-assistant@maximeallanic.github.io/companion/companion.js:298
+#: extension/home-assistant@maximeallanic.github.io/companion/controller.js:57
+#: extension/home-assistant@maximeallanic.github.io/companion/notifications.js:66
+#: extension/home-assistant@maximeallanic.github.io/extension.js:191
+#: extension/home-assistant@maximeallanic.github.io/menu-lines.js:20
+#: extension/home-assistant@maximeallanic.github.io/prefs-connection.js:29
+msgid "Home Assistant"
+msgstr "Home Assistant"
+
+#: extension/home-assistant@maximeallanic.github.io/companion/controller.js:33
+msgctxt "device manufacturer"
+msgid "unknown"
+msgstr "inconnu"
+
+#: extension/home-assistant@maximeallanic.github.io/companion/controller.js:34
+msgctxt "device model"
+msgid "unknown"
+msgstr "inconnu"
+
+#: extension/home-assistant@maximeallanic.github.io/companion/controller.js:36
+msgctxt "OS version"
+msgid "unknown"
+msgstr "inconnue"
+
+#: extension/home-assistant@maximeallanic.github.io/companion/controller.js:57
+msgid "This computer was registered again in Home Assistant"
+msgstr "Cet ordinateur a été enregistré à nouveau dans Home Assistant"
+
+#: extension/home-assistant@maximeallanic.github.io/companion/ha-package.js:55
+#, javascript-format
+msgid "Controls for the computer \"%s\" (Home Assistant for GNOME)."
+msgstr "Commandes de l’ordinateur « %s » (Home Assistant pour GNOME)."
+
+#: extension/home-assistant@maximeallanic.github.io/companion/ha-package.js:56
+msgid ""
+"Generated by the extension preferences from the entity ids Home Assistant "
+"gave this computer."
+msgstr ""
+"Généré par les préférences de l’extension à partir des identifiants "
+"d’entités que Home Assistant a donnés à cet ordinateur."
+
+#: extension/home-assistant@maximeallanic.github.io/companion/ha-package.js:57
+msgid ""
+"Save it as packages/gnome_computer.yaml in the Home Assistant configuration "
+"folder, then restart Home Assistant."
+msgstr ""
+"Enregistrez-le sous packages/gnome_computer.yaml dans le dossier de "
+"configuration de Home Assistant, puis redémarrez Home Assistant."
+
+#: extension/home-assistant@maximeallanic.github.io/companion/ha-package.js:60
+#, javascript-format
+msgid "%s online"
+msgstr "%s en ligne"
+
+#: extension/home-assistant@maximeallanic.github.io/companion/ha-package.js:74
+#, javascript-format
+msgid "%s volume"
+msgstr "%s volume"
+
+#: extension/home-assistant@maximeallanic.github.io/companion/ha-package.js:75
+#, javascript-format
+msgid "%s brightness"
+msgstr "%s luminosité"
+
+#: extension/home-assistant@maximeallanic.github.io/companion/ha-package.js:76
+#, javascript-format
+msgid "%s keyboard backlight"
+msgstr "%s rétroéclairage du clavier"
+
+#: extension/home-assistant@maximeallanic.github.io/companion/ha-package.js:88
+#, javascript-format
+msgid "%s mute"
+msgstr "%s sourdine"
+
+#: extension/home-assistant@maximeallanic.github.io/companion/ha-package.js:89
+#, javascript-format
+msgid "%s do not disturb"
+msgstr "%s ne pas déranger"
+
+#: extension/home-assistant@maximeallanic.github.io/companion/ha-package.js:90
+#, javascript-format
+msgid "%s caffeine"
+msgstr "%s caféine"
+
+#: extension/home-assistant@maximeallanic.github.io/companion/ha-package.js:91
+#, javascript-format
+msgid "%s screen"
+msgstr "%s écran"
+
+#: extension/home-assistant@maximeallanic.github.io/companion/ha-package.js:103
+#, javascript-format
+msgid "%s dark style"
+msgstr "%s style sombre"
+
+#: extension/home-assistant@maximeallanic.github.io/companion/ha-package.js:110
+#, javascript-format
+msgid "%s lock"
+msgstr "%s verrouiller"
+
+#: extension/home-assistant@maximeallanic.github.io/companion/ha-package.js:111
+#, javascript-format
+msgid "%s play or pause"
+msgstr "%s lecture ou pause"
+
+#: extension/home-assistant@maximeallanic.github.io/companion/ha-package.js:112
+#, javascript-format
+msgid "%s next track"
+msgstr "%s piste suivante"
+
+#: extension/home-assistant@maximeallanic.github.io/companion/ha-package.js:113
+#, javascript-format
+msgid "%s previous track"
+msgstr "%s piste précédente"
+
+#: extension/home-assistant@maximeallanic.github.io/companion/ha-package.js:124
+#, javascript-format
+msgid "%s: open a web address"
+msgstr "%s : ouvrir une adresse web"
+
+#: extension/home-assistant@maximeallanic.github.io/companion/ha-package.js:124
+msgid "http or https address to open in the default browser"
+msgstr "adresse http ou https à ouvrir dans le navigateur par défaut"
+
+#: extension/home-assistant@maximeallanic.github.io/companion/ha-package.js:126
+#, javascript-format
+msgid "%s: launch an application"
+msgstr "%s : lancer une application"
+
+#: extension/home-assistant@maximeallanic.github.io/companion/ha-package.js:126
+msgid "Desktop file ID of the application"
+msgstr "identifiant du fichier .desktop de l’application"
+
+#: extension/home-assistant@maximeallanic.github.io/credentials.js:34
+#, javascript-format
+msgid "Home Assistant access token for %s"
+msgstr "Jeton d’accès Home Assistant pour %s"
+
+#: extension/home-assistant@maximeallanic.github.io/extension.js:110
+msgid "Home Assistant refused the access token"
+msgstr "Home Assistant a refusé le jeton d’accès"
+
+#: extension/home-assistant@maximeallanic.github.io/extension.js:111
+msgid ""
+"Create a new long-lived access token and enter it in the extension settings."
+msgstr ""
+"Créez un nouveau jeton d’accès longue durée et saisissez-le dans les "
+"paramètres de l’extension."
+
+#: extension/home-assistant@maximeallanic.github.io/extension.js:185
+msgid "Connect Home Assistant"
+msgstr "Connecter Home Assistant"
+
+#: extension/home-assistant@maximeallanic.github.io/extension.js:186
+msgid ""
+"Enter the address of your Home Assistant and an access token to show it in "
+"the top bar."
+msgstr ""
+"Saisissez l’adresse de votre Home Assistant et un jeton d’accès pour "
+"l’afficher dans la barre supérieure."
+
+#: extension/home-assistant@maximeallanic.github.io/extension.js:197
+msgid "Open Settings"
+msgstr "Ouvrir les paramètres"
+
+#: extension/home-assistant@maximeallanic.github.io/grid-menu.js:146
+msgid "The grid sent by Home Assistant cannot be read"
+msgstr "La grille envoyée par Home Assistant est illisible"
+
+#: extension/home-assistant@maximeallanic.github.io/grid-menu.js:216
+#: extension/home-assistant@maximeallanic.github.io/menu-lines.js:77
+#: extension/home-assistant@maximeallanic.github.io/shortcuts.js:95
+#: extension/home-assistant@maximeallanic.github.io/shortcuts.js:106
+#: extension/home-assistant@maximeallanic.github.io/shortcuts.js:128
+msgid "Not found"
+msgstr "Introuvable"
+
+#: extension/home-assistant@maximeallanic.github.io/ha-client.js:90
+#: extension/home-assistant@maximeallanic.github.io/ha-client.js:100
+msgid "Home Assistant not connected"
+msgstr "Home Assistant non connecté"
+
+#: extension/home-assistant@maximeallanic.github.io/ha-client.js:201
+msgid "Home Assistant error"
+msgstr "Erreur de Home Assistant"
+
+#: extension/home-assistant@maximeallanic.github.io/ha-client.js:244
+msgid "Home Assistant connection lost"
+msgstr "Connexion à Home Assistant perdue"
+
+#: extension/home-assistant@maximeallanic.github.io/menu-lines.js:62
+msgid "No tasks"
+msgstr "Aucune tâche"
+
+#: extension/home-assistant@maximeallanic.github.io/prefs-capture.js:41
+msgid "Press a shortcut"
+msgstr "Appuyez sur un raccourci"
+
+#: extension/home-assistant@maximeallanic.github.io/prefs-capture.js:42
+msgid "Press Escape to cancel or Backspace to remove the shortcut."
+msgstr ""
+"Appuyez sur Échap pour annuler ou sur Retour arrière pour retirer le "
+"raccourci."
+
+#: extension/home-assistant@maximeallanic.github.io/prefs-capture.js:62
+msgid "Use Ctrl, Alt or Super with the key, or one of F1 to F24."
+msgstr ""
+"Utilisez Ctrl, Alt ou Super avec la touche, ou l’une des touches F1 à F24."
+
+#: extension/home-assistant@maximeallanic.github.io/prefs-companion.js:19
+msgid "This Computer"
+msgstr "Cet ordinateur"
+
+#: extension/home-assistant@maximeallanic.github.io/prefs-companion.js:33
+msgid "Register in Home Assistant"
+msgstr "Enregistrer dans Home Assistant"
+
+#: extension/home-assistant@maximeallanic.github.io/prefs-companion.js:34
+msgid ""
+"This computer becomes a device of the Mobile App integration: it reports "
+"sensors (battery, volume, screen lock, media playing…), receives commands "
+"and shows notifications sent from Home Assistant."
+msgstr ""
+"Cet ordinateur devient un appareil de l’intégration Mobile App : il remonte "
+"des capteurs (batterie, volume, verrouillage de l’écran, média en cours…), "
+"reçoit des commandes et affiche les notifications envoyées par Home "
+"Assistant."
+
+#: extension/home-assistant@maximeallanic.github.io/prefs-companion.js:38
+msgid "Register this computer"
+msgstr "Enregistrer cet ordinateur"
+
+#: extension/home-assistant@maximeallanic.github.io/prefs-companion.js:42
+#, javascript-format
+msgid "Device name (empty: %s)"
+msgstr "Nom de l’appareil (vide : %s)"
+
+#: extension/home-assistant@maximeallanic.github.io/prefs-companion.js:46
+msgid "Status"
+msgstr "État"
+
+#: extension/home-assistant@maximeallanic.github.io/prefs-companion.js:54
+#: extension/home-assistant@maximeallanic.github.io/prefs-companion.js:76
+msgid "Home Assistant package"
+msgstr "Paquet Home Assistant"
+
+#: extension/home-assistant@maximeallanic.github.io/prefs-companion.js:55
+msgid ""
+"Turns the sensors of this computer into controls (volume and brightness "
+"sliders, switches, buttons, scripts). In Home Assistant, enable packages in "
+"configuration.yaml (homeassistant: packages: !include_dir_named packages), "
+"save this text as packages/gnome_computer.yaml, then restart Home Assistant."
+msgstr ""
+"Transforme les capteurs de cet ordinateur en commandes (curseurs de volume "
+"et de luminosité, interrupteurs, boutons, scripts). Dans Home Assistant, "
+"activez les paquets dans configuration.yaml (homeassistant: packages: !"
+"include_dir_named packages), enregistrez ce texte sous packages/"
+"gnome_computer.yaml, puis redémarrez Home Assistant."
+
+#: extension/home-assistant@maximeallanic.github.io/prefs-companion.js:60
+msgid "Copy"
+msgstr "Copier"
+
+#: extension/home-assistant@maximeallanic.github.io/prefs-companion.js:66
+msgid "Copied to the clipboard"
+msgstr "Copié dans le presse-papiers"
+
+#: extension/home-assistant@maximeallanic.github.io/prefs-companion.js:89
+msgid "Not registered."
+msgstr "Non enregistré."
+
+#: extension/home-assistant@maximeallanic.github.io/prefs-companion.js:91
+msgid ""
+"Waiting for Home Assistant. The extension must be enabled and connected."
+msgstr ""
+"En attente de Home Assistant. L’extension doit être activée et connectée."
+
+#: extension/home-assistant@maximeallanic.github.io/prefs-companion.js:94
+#, javascript-format
+msgid "Registered as “%s”, %s sensor."
+msgid_plural "Registered as “%s”, %s sensors."
+msgstr[0] "Enregistré sous « %s », %s capteur."
+msgstr[1] "Enregistré sous « %s », %s capteurs."
+
+#: extension/home-assistant@maximeallanic.github.io/prefs-companion.js:104
+#, javascript-format
+msgid ""
+"Home Assistant does not list the service notify.%s. In Developer tools, "
+"Actions, look for the notify.mobile_app_… service of this computer and use "
+"it in the package."
+msgstr ""
+"Home Assistant ne liste pas le service notify.%s. Dans Outils de "
+"développement, Actions, cherchez le service notify.mobile_app_… de cet "
+"ordinateur et utilisez-le dans le paquet."
+
+#: extension/home-assistant@maximeallanic.github.io/prefs-connection.js:20
+msgid "Connection"
+msgstr "Connexion"
+
+#: extension/home-assistant@maximeallanic.github.io/prefs-connection.js:30
+msgid ""
+"Create a long-lived access token in Home Assistant: your profile, Security "
+"tab, Long-lived access tokens, Create token. The token is saved in your "
+"keyring, never in a file."
+msgstr ""
+"Créez un jeton d’accès longue durée dans Home Assistant : votre profil, "
+"onglet Sécurité, Jetons d’accès longue durée, Créer un jeton. Le jeton est "
+"enregistré dans votre trousseau, jamais dans un fichier."
+
+#: extension/home-assistant@maximeallanic.github.io/prefs-connection.js:33
+msgid "Address, for example http://homeassistant.local:8123"
+msgstr "Adresse, par exemple http://homeassistant.local:8123"
+
+#: extension/home-assistant@maximeallanic.github.io/prefs-connection.js:35
+msgid "Access token"
+msgstr "Jeton d’accès"
+
+#: extension/home-assistant@maximeallanic.github.io/prefs-connection.js:36
+msgid "Saved token"
+msgstr "Jeton enregistré"
+
+#: extension/home-assistant@maximeallanic.github.io/prefs-connection.js:37
+#: extension/home-assistant@maximeallanic.github.io/prefs-shortcuts.js:119
+msgid "Remove"
+msgstr "Retirer"
+
+#: extension/home-assistant@maximeallanic.github.io/prefs-connection.js:41
+msgid "Open My Profile"
+msgstr "Ouvrir mon profil"
+
+#: extension/home-assistant@maximeallanic.github.io/prefs-connection.js:47
+msgid "Enter the address of Home Assistant first"
+msgstr "Saisissez d’abord l’adresse de Home Assistant"
+
+#: extension/home-assistant@maximeallanic.github.io/prefs-connection.js:49
+msgid "Create a token in Home Assistant"
+msgstr "Créer un jeton dans Home Assistant"
+
+#: extension/home-assistant@maximeallanic.github.io/prefs-connection.js:53
+msgid "Test Connection"
+msgstr "Tester la connexion"
+
+#: extension/home-assistant@maximeallanic.github.io/prefs-connection.js:55
+msgid "Save"
+msgstr "Enregistrer"
+
+#: extension/home-assistant@maximeallanic.github.io/prefs-connection.js:60
+msgid "Not tested yet"
+msgstr "Pas encore testé"
+
+#: extension/home-assistant@maximeallanic.github.io/prefs-connection.js:70
+msgid "Labels"
+msgstr "Étiquettes"
+
+#: extension/home-assistant@maximeallanic.github.io/prefs-connection.js:71
+msgid ""
+"In Home Assistant, put these labels on entities to show them. Labels are "
+"created in Settings, Areas, labels & zones, Labels."
+msgstr ""
+"Dans Home Assistant, mettez ces étiquettes sur les entités à afficher. Les "
+"étiquettes se créent dans Paramètres, Pièces, étiquettes et zones, "
+"Étiquettes."
+
+#: extension/home-assistant@maximeallanic.github.io/prefs-connection.js:75
+msgid "Top bar chips"
+msgstr "Pastilles de la barre supérieure"
+
+#: extension/home-assistant@maximeallanic.github.io/prefs-connection.js:76
+msgid "Alert chips"
+msgstr "Pastilles d’alerte"
+
+#: extension/home-assistant@maximeallanic.github.io/prefs-connection.js:77
+msgid "Quick Settings grid"
+msgstr "Grille des réglages rapides"
+
+#: extension/home-assistant@maximeallanic.github.io/prefs-connection.js:87
+msgid "Icons"
+msgstr "Icônes"
+
+#: extension/home-assistant@maximeallanic.github.io/prefs-connection.js:90
+msgid "Download Home Assistant icons"
+msgstr "Télécharger les icônes de Home Assistant"
+
+#: extension/home-assistant@maximeallanic.github.io/prefs-connection.js:91
+msgid ""
+"Material Design Icons are fetched once from cdn.jsdelivr.net, then kept in "
+"the cache."
+msgstr ""
+"Les Material Design Icons sont téléchargées une fois depuis "
+"cdn.jsdelivr.net, puis gardées en cache."
+
+#: extension/home-assistant@maximeallanic.github.io/prefs-connection.js:113
+#: extension/home-assistant@maximeallanic.github.io/prefs-connection.js:172
+#, javascript-format
+msgid "The keyring cannot be read: %s"
+msgstr "Le trousseau est illisible : %s"
+
+#: extension/home-assistant@maximeallanic.github.io/prefs-connection.js:114
+#, javascript-format
+msgid "A token for %s is saved in your keyring."
+msgstr "Un jeton pour %s est enregistré dans votre trousseau."
+
+#: extension/home-assistant@maximeallanic.github.io/prefs-connection.js:115
+msgid "No token saved yet."
+msgstr "Aucun jeton enregistré pour l’instant."
+
+#: extension/home-assistant@maximeallanic.github.io/prefs-connection.js:126
+#: extension/home-assistant@maximeallanic.github.io/prefs-connection.js:164
+msgid "The address must start with http:// or https://"
+msgstr "L’adresse doit commencer par http:// ou https://"
+
+#: extension/home-assistant@maximeallanic.github.io/prefs-connection.js:135
+#, javascript-format
+msgid "The token could not be saved in the keyring: %s"
+msgstr "Le jeton n’a pas pu être enregistré dans le trousseau : %s"
+
+#: extension/home-assistant@maximeallanic.github.io/prefs-connection.js:142
+msgid "Saved"
+msgstr "Enregistré"
+
+#: extension/home-assistant@maximeallanic.github.io/prefs-connection.js:153
+#, javascript-format
+msgid "The token could not be removed from the keyring: %s"
+msgstr "Le jeton n’a pas pu être retiré du trousseau : %s"
+
+#: extension/home-assistant@maximeallanic.github.io/prefs-connection.js:177
+msgid "Enter an access token"
+msgstr "Saisissez un jeton d’accès"
+
+#: extension/home-assistant@maximeallanic.github.io/prefs-connection.js:182
+msgid "Testing…"
+msgstr "Test en cours…"
+
+#: extension/home-assistant@maximeallanic.github.io/prefs-connection.js:187
+#, javascript-format
+msgid "Connected to %s"
+msgstr "Connecté à %s"
+
+#: extension/home-assistant@maximeallanic.github.io/prefs-connection.js:187
+msgid "Connected"
+msgstr "Connecté"
+
+#: extension/home-assistant@maximeallanic.github.io/prefs-connection.js:188
+#, javascript-format
+msgid "Home Assistant %s"
+msgstr "Home Assistant %s"
+
+#: extension/home-assistant@maximeallanic.github.io/prefs-connection.js:191
+msgid "Connection failed"
+msgstr "Échec de la connexion"
+
+#: extension/home-assistant@maximeallanic.github.io/prefs-connection.js:193
+msgid "Home Assistant refused the token. Create a new one and paste it again."
+msgstr ""
+"Home Assistant a refusé le jeton. Créez-en un nouveau et collez-le à nouveau."
+
+#: extension/home-assistant@maximeallanic.github.io/prefs-connection.js:194
+msgid "This address answers, but it is not Home Assistant."
+msgstr "Cette adresse répond, mais ce n’est pas Home Assistant."
+
+#: extension/home-assistant@maximeallanic.github.io/prefs-connection.js:195
+#, javascript-format
+msgid "Unexpected answer from this address (%s)."
+msgstr "Réponse inattendue de cette adresse (%s)."
+
+#: extension/home-assistant@maximeallanic.github.io/prefs-connection.js:196
+#, javascript-format
+msgid "The address cannot be reached: %s"
+msgstr "L’adresse est injoignable : %s"
+
+#: extension/home-assistant@maximeallanic.github.io/prefs-shortcuts.js:18
+msgid "Shortcuts"
+msgstr "Raccourcis"
+
+#: extension/home-assistant@maximeallanic.github.io/prefs-shortcuts.js:48
+msgid "No mini-tiles to list"
+msgstr "Aucune mini-tuile à lister"
+
+#: extension/home-assistant@maximeallanic.github.io/prefs-shortcuts.js:49
+msgid ""
+"They appear here once Home Assistant is connected and sends a grid with mini-"
+"tiles."
+msgstr ""
+"Elles apparaissent ici une fois Home Assistant connecté, quand il envoie une "
+"grille avec des mini-tuiles."
+
+#: extension/home-assistant@maximeallanic.github.io/prefs-shortcuts.js:62
+msgid "Tile action"
+msgstr "Action de la tuile"
+
+#: extension/home-assistant@maximeallanic.github.io/prefs-shortcuts.js:79
+msgid "Already used by another shortcut"
+msgstr "Déjà utilisé par un autre raccourci"
+
+#: extension/home-assistant@maximeallanic.github.io/prefs-shortcuts.js:92
+msgid "Not set"
+msgstr "Non défini"
+
+#: extension/home-assistant@maximeallanic.github.io/prefs-shortcuts.js:94
+msgid "Set"
+msgstr "Définir"
+
+#: extension/home-assistant@maximeallanic.github.io/prefs-shortcuts.js:105
+msgid "Inactive"
+msgstr "Inactifs"
+
+#: extension/home-assistant@maximeallanic.github.io/prefs-shortcuts.js:106
+msgid "These shortcuts no longer match anything in the grid and do nothing."
+msgstr ""
+"Ces raccourcis ne correspondent plus à rien dans la grille et ne font rien."
+
+#: extension/home-assistant@maximeallanic.github.io/prefs-shortcuts.js:133
+msgid "The stored shortcuts are not a list, nothing was changed"
+msgstr "Les raccourcis enregistrés ne sont pas une liste, rien n’a été modifié"
+
+#: extension/home-assistant@maximeallanic.github.io/sensors/desktop.js:52
+msgid "Volume"
+msgstr "Volume"
+
+#: extension/home-assistant@maximeallanic.github.io/sensors/desktop.js:54
+msgid "Muted"
+msgstr "Sourdine"
+
+#: extension/home-assistant@maximeallanic.github.io/sensors/desktop.js:59
+msgid "Brightness"
+msgstr "Luminosité"
+
+#: extension/home-assistant@maximeallanic.github.io/sensors/desktop.js:66
+msgid "Do Not Disturb"
+msgstr "Ne pas déranger"
+
+#: extension/home-assistant@maximeallanic.github.io/sensors/desktop.js:71
+msgid "Caffeine"
+msgstr "Caféine"
+
+#: extension/home-assistant@maximeallanic.github.io/sensors/desktop.js:78
+msgid "Theme"
+msgstr "Thème"
+
+#: extension/home-assistant@maximeallanic.github.io/sensors/desktop.js:82
+msgid "Media"
+msgstr "Média"
+
+#: extension/home-assistant@maximeallanic.github.io/sensors/desktop.js:97
+msgid "Keyboard backlight"
+msgstr "Rétroéclairage du clavier"
+
+#: extension/home-assistant@maximeallanic.github.io/sensors/presence.js:16
+msgid "Locked"
+msgstr "Verrouillé"
+
+#: extension/home-assistant@maximeallanic.github.io/sensors/presence.js:17
+msgid "Active"
+msgstr "Actif"
+
+#: extension/home-assistant@maximeallanic.github.io/sensors/presence.js:18
+msgid "Screen on"
+msgstr "Écran allumé"
+
+#: extension/home-assistant@maximeallanic.github.io/sensors/presence.js:19
+msgid "Fullscreen"
+msgstr "Plein écran"
+
+#: extension/home-assistant@maximeallanic.github.io/sensors/presence.js:20
+msgid "Active app"
+msgstr "Application active"
+
+#: extension/home-assistant@maximeallanic.github.io/sensors/presence.js:21
+msgid "Displays"
+msgstr "Écrans"
+
+#: extension/home-assistant@maximeallanic.github.io/sensors/system.js:58
+msgid "CPU"
+msgstr "Processeur"
+
+#: extension/home-assistant@maximeallanic.github.io/sensors/system.js:60
+msgid "Memory"
+msgstr "Mémoire"
+
+#: extension/home-assistant@maximeallanic.github.io/sensors/system.js:62
+msgid "Temperature"
+msgstr "Température"
+
+#: extension/home-assistant@maximeallanic.github.io/sensors/system.js:65
+msgid "Fan"
+msgstr "Ventilateur"
+
+#: extension/home-assistant@maximeallanic.github.io/sensors/system.js:67
+msgid "Free disk space"
+msgstr "Espace disque libre"
+
+#: extension/home-assistant@maximeallanic.github.io/sensors/system.js:76
+msgid "Wi-Fi network"
+msgstr "Réseau Wi-Fi"
+
+#: extension/home-assistant@maximeallanic.github.io/sensors/system.js:77
+msgid "IP address"
+msgstr "Adresse IP"
+
+#: extension/home-assistant@maximeallanic.github.io/sensors/system.js:101
+msgid "Battery"
+msgstr "Batterie"
+
+#: extension/home-assistant@maximeallanic.github.io/sensors/system.js:103
+msgid "Charging"
+msgstr "En charge"
+
+#: extension/home-assistant@maximeallanic.github.io/sensors/system.js:105
+msgid "AC power"
+msgstr "Sur secteur"

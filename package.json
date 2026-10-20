@@ -1,0 +1,17 @@
+{
+  "name": "gnome-home-assistant",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Development tooling for the gnome-home-assistant repository (the extension itself is plain GJS and need no Node).",
+  "license": "MIT",
+  "scripts": {
+    "lint": "eslint .",
+    "test": "./tests/run.sh"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.0.0",
+    "eslint": "^9.0.0",
+    "globals": "^16.0.0"
+  }
+}
