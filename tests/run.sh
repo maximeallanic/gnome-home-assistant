@@ -39,8 +39,11 @@ step "no source file over 500 lines" bash -c "! git ls-files -co --exclude-stand
     grep -v '^node_modules/' | xargs -r wc -l | grep -v ' total$' | awk '\$1 > 500 {print; bad=1} END {exit !bad}'"
 if command -v gnome-extensions >/dev/null; then
     step "extensions.gnome.org zip" bash -c "scripts/pack.sh --out '$scratch/dist' && python3 tests/check_packs.py '$scratch/dist'"
+    step "zip is reproducible" bash -c "scripts/pack.sh --out '$scratch/again' >/dev/null && \
+        cmp '$scratch/dist/'*.zip '$scratch/again/'*.zip"
+    step "one-line install: pin, checksum, HTTPS only" tests/test_install.sh
 else
-    echo "SKIP  extensions.gnome.org zip (gnome-extensions not installed)"
+    echo "SKIP  extensions.gnome.org zip, reproducible zip, one-line install (gnome-extensions not installed)"
 fi
 step "release notes for the current version" bash -c "scripts/release-notes.sh \
     \"\$(sed -n 's/.*\"version-name\": \"\\([^\"]*\\)\".*/\\1/p' '$ext/metadata.json')\" >/dev/null"

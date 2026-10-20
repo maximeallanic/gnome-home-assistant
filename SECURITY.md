@@ -20,7 +20,13 @@ GNOME Shell extensions run inside the Shell process with its full privileges. He
 In scope: anything in this repository that breaks one of those properties; a way for Home Assistant data (states,
 attributes, notifications, translations) to run code, open arbitrary files or crash the Shell; a way for another
 local user or a web page to obtain the token or the webhook id; the installer downloading or running something
-other than the checksum-verified release.
+other than the release whose SHA-256 is pinned in `install.sh`.
+
+The one-line installer carries the SHA-256 of the release zip in its own text (`RELEASE_SHA256`, written by
+`scripts/release.sh` in the release commit), downloads over HTTPS only and checks the zip before installing it.
+A release file replaced on GitHub is therefore refused; the pin is only as trustworthy as the `install.sh` you run,
+which comes from the repository's `main` branch. The release workflow rebuilds the zip from the tag and fails unless
+it has exactly the pinned SHA-256.
 
 Out of scope: vulnerabilities of Home Assistant, GNOME Shell, libsoup or libsecret themselves; someone who already
 controls your Home Assistant account sending you the commands the companion documents.

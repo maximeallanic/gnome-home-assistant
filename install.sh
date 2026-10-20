@@ -5,8 +5,10 @@
 #   curl -fsSL https://raw.githubusercontent.com/maximeallanic/gnome-home-assistant/main/install.sh | bash
 #   ./install.sh [options]          (from a clone: installs the checkout instead of a release)
 #
+# Without a clone next to it, it downloads the release pinned below over HTTPS and checks its SHA-256 against the pin
+# before installing anything.
+#
 # Options:
-#   --release VERSION   release to download (default: the version this script was published with)
 #   --zip FILE          install this extension zip instead of downloading one
 #   --source            build and install the checkout this script is in (default when run from a clone)
 #   --install-deps      install missing system packages (asks first; uses sudo)
@@ -19,10 +21,14 @@ set -euo pipefail
 
 UUID="home-assistant@maximeallanic.github.io"
 REPO="maximeallanic/gnome-home-assistant"
-PINNED_VERSION="0.1.0"
 SUPPORTED_SHELL=(51)
 
-VERSION="$PINNED_VERSION"
+# Pinned release fetched when there is no clone. scripts/release.sh fills both values in a release commit; while
+# RELEASE_SHA256 is empty, the download refuses to run and points to a clone instead.
+RELEASE_VERSION=0.1.0
+RELEASE_SHA256=''
+RELEASE_URL="https://github.com/maximeallanic/gnome-home-assistant/releases/download/v${RELEASE_VERSION}/home-assistant@maximeallanic.github.io.shell-extension.zip"
+
 ZIP=""
 FROM_SOURCE=0
 INSTALL_DEPS=0
@@ -41,7 +47,7 @@ usage() {
     if [[ -n "${BASH_SOURCE[0]:-}" && -f "${BASH_SOURCE[0]}" ]]; then
         sed -n '2,/^set -euo/p' "${BASH_SOURCE[0]}" | sed '$d; s/^# \{0,1\}//'
     else
-        say "Options: --release VERSION, --zip FILE, --install-deps, -y, --no-enable, --dry-run. Full help:"
+        say "Options: --zip FILE, --install-deps, -y, --no-enable, --dry-run. Full help:"
         say "https://github.com/$REPO/blob/main/docs/installation.md"
     fi
 }
@@ -55,7 +61,6 @@ fi
 
 while (($#)); do
     case "$1" in
-        --release) (($# >= 2)) || die "--release needs a version"; VERSION="${2#v}"; FROM_SOURCE=0; shift ;;
         --zip) (($# >= 2)) || die "--zip needs a file"; ZIP="$2"; FROM_SOURCE=0; shift ;;
         --source) [[ -n "$SCRIPT_DIR" && -d "$SCRIPT_DIR/extension/$UUID" ]] || die "--source works only from a clone"
             FROM_SOURCE=1 ;;
@@ -71,6 +76,19 @@ while (($#)); do
     esac
     shift
 done
+
+# Downloading the pinned release: refuse before anything is checked, asked, downloaded or created when this copy of the
+# script pins no release, or when a tool the download needs is missing.
+if ((!FROM_SOURCE)) && [[ -z "$ZIP" ]]; then
+    if [[ -z "$RELEASE_SHA256" ]]; then
+        printf 'error: no release of Hearth for Home Assistant is pinned in this installer yet.\n' >&2
+        printf '       Use a clone instead: git clone https://github.com/%s && gnome-home-assistant/install.sh\n' "$REPO" >&2
+        exit 1
+    fi
+    for tool in curl sha256sum; do
+        command -v "$tool" >/dev/null || die "$tool is needed to download the release."
+    done
+fi
 
 ask() { # question -> 0 for yes
     ((ASSUME_YES)) && return 0
@@ -133,8 +151,6 @@ busctl --user --list 2>/dev/null | grep -q '^org.freedesktop.secrets' || command
 if ((FROM_SOURCE)); then
     command -v msgfmt >/dev/null || missing+=(gettext)
 fi
-command -v curl >/dev/null || command -v wget >/dev/null || ((FROM_SOURCE)) || [[ -n "$ZIP" ]] ||
-    die "curl or wget is needed to download the release."
 
 if ((${#missing[@]})); then
     family="$(distro_family)"
@@ -172,14 +188,6 @@ mkdir -p "$cache"
 work="$(mktemp -d "$cache/gnome-home-assistant-install.XXXXXX")"
 trap 'rm -rf -- "$work"' EXIT
 
-download() { # url output
-    if command -v curl >/dev/null; then
-        run curl -fsSL --retry 2 -o "$2" "$1"
-    else
-        run wget -q -O "$2" "$1"
-    fi
-}
-
 if [[ -n "$ZIP" ]]; then
     step "Using $ZIP"
     [[ -f "$ZIP" ]] || die "$ZIP not found"
@@ -188,14 +196,14 @@ elif ((FROM_SOURCE)); then
     run "$SCRIPT_DIR/scripts/pack.sh" --out "$work"
     ZIP="$work/$UUID.shell-extension.zip"
 else
-    step "Downloading release $VERSION"
-    base="https://github.com/$REPO/releases/download/v$VERSION"
+    step "Downloading release $RELEASE_VERSION"
     ZIP="$work/$UUID.shell-extension.zip"
-    download "$base/$UUID.shell-extension.zip" "$ZIP"
-    download "$base/SHA256SUMS" "$work/SHA256SUMS"
+    # HTTPS only, redirects included (GitHub sends release assets to another host).
+    run curl --fail --location --silent --show-error --proto '=https' --proto-redir '=https' --tlsv1.2 \
+        --output "$ZIP" "$RELEASE_URL"
     if ((!DRY_RUN)); then
-        (cd "$work" && grep " $UUID.shell-extension.zip\$" SHA256SUMS | sha256sum --check --quiet) ||
-            die "the downloaded zip does not match SHA256SUMS: not installed."
+        echo "$RELEASE_SHA256  $ZIP" | sha256sum --check --status ||
+            die "the download does not match the pinned SHA-256: nothing was installed."
         say "Checksum verified."
     fi
 fi

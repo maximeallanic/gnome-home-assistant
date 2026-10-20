@@ -86,7 +86,8 @@ Light and dark versions are in [`screenshots/`](screenshots).
 curl -fsSL https://raw.githubusercontent.com/maximeallanic/gnome-home-assistant/main/install.sh | bash
 ```
 
-This downloads the pinned release, checks it against `SHA256SUMS`, installs it for your user only and enables it.
+This downloads the pinned release over HTTPS, checks it against the SHA-256 written in `install.sh` itself, installs
+it for your user only and enables it.
 Add `bash -s -- --install-deps` to let it install missing system packages (it asks first). **On Wayland, log out and
 back in once** after the first install. Other ways (clone, zip, options): [docs/installation.md](docs/installation.md).
 

@@ -17,7 +17,7 @@ extension/home-assistant@maximeallanic.github.io/   the extension, as installed
   icons.js, icons/        Material Design Icons cache and the two shipped icons
 ha/packages/              example Home Assistant packages
 po/                       translations (English source strings, French catalogue)
-scripts/                  pack.sh, update-po.sh, release-notes.sh, release.sh, example-package.js
+scripts/                  pack.sh, normalize-zip.py, update-po.sh, release-notes.sh, release.sh, example-package.js
 tests/unit, tests/integration, tests/fake-ha, tests/screenshots
 install.sh, uninstall.sh, verify.sh
 ```
@@ -35,11 +35,13 @@ tests/run.sh
 `tests/run.sh` runs, without opening any window or touching your settings: every `tests/unit/test_*.js` and
 `tests/integration/test_*.js` under `gjs -m`, schema compilation, translation checks (French catalogue complete,
 template up to date, `POTFILES` complete), the stylesheet layout check, the generated example package, YAML parsing,
-the 500-line limit, building and checking the extensions.gnome.org zip, the release notes, ESLint and ShellCheck.
+the 500-line limit, building and checking the extensions.gnome.org zip and that two builds are byte-identical,
+`tests/test_install.sh` (the one-line install through a pipe in a throw-away HOME: refused without a pin, installs a
+zip that matches the pin, refuses a tampered zip and a non-HTTPS URL), the release notes, ESLint and ShellCheck.
 Steps whose tool is missing are reported as `SKIP`.
 
 Needs: `gjs`, `gir1.2-secret-1`, `gir1.2-soup-3.0`, `gettext`, `python3` (+ `python3-yaml`), `gnome-shell` (for
-`gnome-extensions pack`), `shellcheck`, Node for ESLint. Some tests format numbers in `fr_FR`: install the locale
+`gnome-extensions pack`), `curl`, `shellcheck`, Node for ESLint. Some tests format numbers in `fr_FR`: install the locale
 (`locales-all` on Debian) for them to be meaningful.
 
 ## The fake Home Assistant
@@ -85,8 +87,12 @@ Assistant's translations, numbers through the session locale, sorting through `I
 
 ## Releases
 
-1. Set the version in `metadata.json` (`version-name`), `package.json` and `install.sh` (`PINNED_VERSION`), and add a
-   CHANGELOG section.
-2. `scripts/release.sh X.Y.Z` checks all of it and prints the tag commands.
-3. Pushing the tag runs `.github/workflows/release.yml`: tests, zip, source tarball, `SHA256SUMS`, build provenance
-   attestation, GitHub release. `install.sh` downloads the zip and `SHA256SUMS` of that release.
+1. Set the version in `metadata.json` (`version-name`) and `package.json`, and add a CHANGELOG section. Commit.
+2. On Debian testing (the release workflow's toolchain, so the zip has the same bytes), `scripts/release.sh X.Y.Z`
+   checks all of it, builds the zip reproducibly from the committed tree, writes `RELEASE_VERSION` and the zip's
+   SHA-256 (`RELEASE_SHA256`) into `install.sh` and commits that as `chore(release): X.Y.Z`. It prints the tag
+   commands and runs none.
+3. Pushing the tag runs `.github/workflows/release.yml`: tests, then `scripts/release.sh --build-only X.Y.Z`, which
+   rebuilds the zip from the tag and fails unless it matches the pin; then source tarball, `SHA256SUMS`, build
+   provenance attestation, GitHub release. `install.sh` downloads that zip and checks it against its own pin.
+   `tests/test_install.sh` blanks and sets the pin itself, so the tests pass on any commit.

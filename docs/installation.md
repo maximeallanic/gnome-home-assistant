@@ -32,21 +32,20 @@ The script runs as your user. It:
 
 1. checks the GNOME Shell version and that the libraries above are present (with `--install-deps` it offers to
    install what is missing with `apt`, `dnf`, `pacman` or `zypper`, through `sudo`, after asking);
-2. downloads the extension zip of the release it was published with, and `SHA256SUMS`, from the GitHub release, and
-   refuses to install if the checksum does not match;
+2. downloads the extension zip of the release pinned in the script (`RELEASE_VERSION`) from the GitHub release, over
+   HTTPS only, and refuses to install it unless its SHA-256 is the one written in the script (`RELEASE_SHA256`);
+   a copy of the script that pins no release refuses to download and tells you to use a clone;
 3. runs `gnome-extensions install --force` and enables the extension.
 
 Options are passed after `bash -s --`:
 
 ```sh
 curl -fsSL https://raw.githubusercontent.com/maximeallanic/gnome-home-assistant/main/install.sh | bash -s -- --install-deps
-curl -fsSL .../install.sh | bash -s -- --release 0.1.0      # a given release
 curl -fsSL .../install.sh | bash -s -- --dry-run            # print what would be done
 ```
 
 | Option | Effect |
 |---|---|
-| `--release VERSION` | release to download (default: the one the script was published with) |
 | `--zip FILE` | install this zip instead of downloading one |
 | `--source` | build and install the clone the script is in (default when run from a clone) |
 | `--install-deps` | install missing system packages (asks first; uses sudo) |

@@ -4,7 +4,8 @@
 #   scripts/pack.sh [--out DIR]
 #
 # Uses `gnome-extensions pack`: every module and directory is added with --extra-source, the po/ catalogues are
-# compiled into the zip's locale/ tree, and the GSettings schema is included.
+# compiled into the zip's locale/ tree, and the GSettings schema is included. scripts/normalize-zip.py then makes the
+# bytes reproducible (sorted entries, fixed dates and modes): the release pin in install.sh relies on it.
 set -euo pipefail
 root="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 uuid="home-assistant@maximeallanic.github.io"
@@ -15,7 +16,7 @@ die() { echo "error: $*" >&2; exit 1; }
 while [[ $# -gt 0 ]]; do
     case "$1" in
         --out) [[ $# -ge 2 ]] || die "--out needs a directory"; out="$2"; shift ;;
-        -h|--help) sed -n '2,7p' "${BASH_SOURCE[0]}" | sed 's/^# \{0,1\}//'; exit 0 ;;
+        -h|--help) sed -n '2,8p' "${BASH_SOURCE[0]}" | sed 's/^# \{0,1\}//'; exit 0 ;;
         *) die "unknown argument: $1" ;;
     esac
     shift
@@ -37,4 +38,5 @@ done < <(find "$src" -mindepth 1 -maxdepth 1 ! -name 'gschemas.compiled' -printf
 gnome-extensions pack "${args[@]}" "$src"
 zip="$out/$uuid.shell-extension.zip"
 [[ -f "$zip" ]] || die "expected $zip was not produced"
+python3 "$root/scripts/normalize-zip.py" "$zip"
 echo "packed $zip"

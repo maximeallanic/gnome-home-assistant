@@ -7,10 +7,11 @@
 ## Install
 
 ```sh
-curl -fsSL https://raw.githubusercontent.com/maximeallanic/gnome-home-assistant/main/install.sh | bash -s -- --release VERSION
+curl -fsSL https://raw.githubusercontent.com/maximeallanic/gnome-home-assistant/main/install.sh | bash
 ```
 
-Or download `home-assistant@maximeallanic.github.io.shell-extension.zip` and run
+This installs the latest release: its `install.sh` pins the zip's SHA-256 and refuses any other file. For this
+version in particular, download `home-assistant@maximeallanic.github.io.shell-extension.zip`, verify it (below) and run
 `gnome-extensions install --force home-assistant@maximeallanic.github.io.shell-extension.zip`, then log out and in.
 
 ## Verify the download

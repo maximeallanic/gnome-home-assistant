@@ -16,6 +16,14 @@ All notable changes to this project are documented in this file. The format foll
 - The metadata description says the project is unofficial and not affiliated with Home Assistant or the Open Home
   Foundation.
 
+- The one-line install no longer trusts `SHA256SUMS` from the same GitHub release as the zip, which only caught a
+  corrupted download: `install.sh` now carries the release's SHA-256 itself (`RELEASE_VERSION`, `RELEASE_SHA256`,
+  written by `scripts/release.sh` in a release commit), downloads over HTTPS only (redirects included) and checks
+  the zip before installing it. A copy that pins no release refuses to download and points to a clone. `--release`
+  and the `wget` fallback are removed: neither could be checked against a pin.
+- `scripts/pack.sh` builds a reproducible zip (`scripts/normalize-zip.py`), and the release workflow rebuilds it from
+  the tag with `scripts/release.sh --build-only` and fails unless it matches the pin.
+
 ### Fixed
 
 - The screenshot runner passed `LC_ALL`, `LC_MESSAGES` or `LANGUAGE` from the calling shell to the preferences,

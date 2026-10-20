@@ -92,8 +92,8 @@ retouche. Les textes écrits par les modèles de la démo restent en anglais ; l
 curl -fsSL https://raw.githubusercontent.com/maximeallanic/gnome-home-assistant/main/install.sh | bash
 ```
 
-Le script télécharge la version épinglée, la vérifie avec `SHA256SUMS`, l'installe pour votre utilisateur seulement
-et l'active. Avec `bash -s -- --install-deps`, il propose d'installer les paquets système manquants (il demande
+Le script télécharge la version épinglée en HTTPS, la vérifie avec l'empreinte SHA-256 inscrite dans `install.sh`
+lui-même, l'installe pour votre utilisateur seulement et l'active. Avec `bash -s -- --install-deps`, il propose d'installer les paquets système manquants (il demande
 d'abord). **Sous Wayland, fermez puis rouvrez la session une fois** après la première installation. Autres méthodes
 (clone, zip, options) : [docs/installation.md](docs/installation.md).
 

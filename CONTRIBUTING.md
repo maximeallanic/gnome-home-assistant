@@ -70,9 +70,12 @@ catalogue. Sensor names are translated too: Home Assistant receives them at regi
 
 ## Releases (maintainer)
 
-1. Set `version-name` in `metadata.json`, `version` in `package.json` and `PINNED_VERSION` in `install.sh`; turn
-   `[Unreleased]` into `[X.Y.Z] - date` in `CHANGELOG.md`. Merge.
-2. On an up-to-date `main`: `scripts/release.sh X.Y.Z` checks everything and prints the tag commands.
-3. Push the tag. The *Release* workflow runs CI, builds the zip, the source tarball and `SHA256SUMS`, attests their
-   provenance and publishes the GitHub release (pre-release below 1.0.0). To rehearse, run the workflow by hand: it
-   builds and publishes nothing.
+1. Set `version-name` in `metadata.json` and `version` in `package.json`; turn `[Unreleased]` into
+   `[X.Y.Z] - date` in `CHANGELOG.md`. Merge.
+2. On an up-to-date `main`, on Debian testing: `scripts/release.sh X.Y.Z` checks everything, builds the zip
+   reproducibly, pins its version and SHA-256 in `install.sh` in a `chore(release): X.Y.Z` commit and prints the tag
+   commands.
+3. Push `main` and the tag. The *Release* workflow runs CI, rebuilds the zip and checks it matches the pin
+   (`scripts/release.sh --build-only`), builds the source tarball and `SHA256SUMS`, attests their provenance and
+   publishes the GitHub release (pre-release below 1.0.0). To rehearse, run the workflow by hand: it runs the same
+   checks and publishes nothing.

@@ -1,8 +1,10 @@
 name: Release
 
-# A tag vX.Y.Z (or vX.Y.Z-suffix) runs the full test suite, builds the release files and publishes a GitHub release.
-# "Run workflow" (workflow_dispatch) builds everything for the given version but publishes nothing.
-# install.sh downloads <uuid>.shell-extension.zip and SHA256SUMS from the release: keep those two file names.
+# A tag vX.Y.Z (or vX.Y.Z-suffix) runs the full test suite, rebuilds the extension zip from the tag, checks that it is
+# byte for byte the zip whose SHA-256 install.sh pins (scripts/release.sh --build-only; scripts/release.sh wrote the
+# pin in the release commit before the tag was made) and publishes a GitHub release.
+# "Run workflow" (workflow_dispatch) does the same checks and builds for the given version but publishes nothing.
+# install.sh downloads <uuid>.shell-extension.zip from the release: keep that file name.
 on:
   push:
     tags: ['v[0-9]+.[0-9]+.[0-9]+*']
@@ -49,8 +51,6 @@ jobs:
         run: |
           git fetch --no-tags origin main
           git merge-base --is-ancestor "$GITHUB_SHA" origin/main || { echo "::error::tag is not on main"; exit 1; }
-      - name: Versions in the sources match (metadata.json, package.json, install.sh)
-        run: scripts/release.sh --ci "${{ steps.v.outputs.version }}"
 
   ci:
     name: Tests
@@ -71,10 +71,11 @@ jobs:
           apt-get update
           apt-get install -y --no-install-recommends ca-certificates git gnome-shell gettext python3
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
-      - name: Zip for extensions.gnome.org and install.sh
+      # Same toolchain as the one scripts/release.sh is run with (Debian testing): the zip must be reproducible.
+      - name: Zip for extensions.gnome.org and install.sh, checked against the pin in install.sh
         run: |
           git config --global --add safe.directory "$GITHUB_WORKSPACE"
-          scripts/pack.sh --out dist
+          scripts/release.sh --build-only "$VERSION"
           python3 tests/check_packs.py dist
       - name: Source tarball
         run: git archive --format=tar.gz --prefix="gnome-home-assistant-$VERSION/" -o "dist/gnome-home-assistant-$VERSION.tar.gz" HEAD
