@@ -13,7 +13,8 @@ of `tests/fake-ha` (made-up entities, nobody's real home).
 | `dark-grid-detail.png`, `light-grid-detail.png` | the blinds detail: choices and position slider |
 | `dark-grid-tasks.png`, `light-grid-tasks.png` | the chores detail: open to-do items |
 | `dark-preferences.png`, `light-preferences.png` | the preferences, Connection page |
-| `fr-dark-grid-tasks.png`, `fr-dark-preferences.png` | the same in a French session: the extension's own strings from `po/fr.po`, state words ("Éteint", "Ouvert", "Chauffe") from Home Assistant's translations; texts written by the fixture's templates stay as written |
+| `fr-dark-grid-tasks.png` | the chores detail in a French session: the extension's own strings from `po/fr.po`, state words ("Éteint", "Ouvert", "Chauffe") from Home Assistant's translations; texts written by the fixture's templates stay as written |
+| `fr-dark-preferences.png` | meant to show the preferences in a French session, but the current capture shows them in English although `po/fr.po` translates them; cause not investigated yet, to be taken again |
 
 When a tile's menu is open, GNOME Shell dims the other Quick Settings tiles; that is stock behaviour.
 

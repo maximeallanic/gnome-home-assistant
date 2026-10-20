@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1280" height="640" viewBox="0 0 1280 640">
+  <!-- GitHub social preview. The two images are unmodified captures from screenshots/ (scaled only).
+       No Home Assistant logo: see docs/marketing/github-metadata.md. Render instructions are there too. -->
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#16171b"/>
+      <stop offset="1" stop-color="#16294a"/>
+    </linearGradient>
+    <clipPath id="grid-clip">
+      <rect x="770" y="40" width="440" height="575" rx="28"/>
+    </clipPath>
+  </defs>
+  <rect width="1280" height="640" fill="url(#bg)"/>
+
+  <g font-family="Adwaita Sans, Cantarell, Inter, sans-serif" fill="#ffffff">
+    <text x="72" y="104" font-size="22" font-weight="700" letter-spacing="2.5" fill="#78aeed">UNOFFICIAL GNOME SHELL EXTENSION</text>
+    <text x="72" y="190" font-size="68" font-weight="800">Home Assistant,</text>
+    <text x="72" y="268" font-size="68" font-weight="800">in your top bar.</text>
+
+    <image x="72" y="312" width="326" height="64" xlink:href="../../screenshots/dark-topbar.png"/>
+
+    <text x="72" y="440" font-size="28" fill="#deddda">Label an entity in Home Assistant: it becomes a chip.</text>
+    <text x="72" y="484" font-size="28" fill="#deddda">Lights, blinds, sliders, to-dos in Quick Settings.</text>
+    <text x="72" y="528" font-size="28" fill="#deddda">Your computer as a Home Assistant device.</text>
+
+    <text x="72" y="596" font-size="20" fill="#9a9996">GNOME 51 · MIT · Not affiliated with the Open Home Foundation</text>
+  </g>
+
+  <image x="770" y="40" width="440" height="575" preserveAspectRatio="xMidYMin slice" clip-path="url(#grid-clip)"
+         xlink:href="../../screenshots/dark-grid.png"/>
+</svg>

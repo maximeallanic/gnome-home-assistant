@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="620" height="930" viewBox="0 0 620 930">
+  <!-- Image d'accroche du README.fr. Captures non retouchées de screenshots/ (seulement mises à l'échelle).
+       Rendu : voir docs/marketing/github-metadata.md. -->
+  <rect width="620" height="930" rx="24" fill="#1d1d20"/>
+  <g font-family="Adwaita Sans, Cantarell, Inter, sans-serif" font-size="22" fill="#deddda" text-anchor="middle">
+    <text x="310" y="52">Barre du haut : une puce par entité étiquetée</text>
+    <text x="310" y="186">Réglages rapides : grille et liste de tâches</text>
+  </g>
+  <image x="147" y="72" width="326" height="64" xlink:href="../../screenshots/dark-topbar.png"/>
+  <image x="90" y="204" width="440" height="691" xlink:href="../../screenshots/fr-dark-grid-tasks.png"/>
+</svg>

@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1040" height="930" viewBox="0 0 1040 930">
+  <!-- README hero. Three unmodified captures from screenshots/ (scaled only), placed side by side with captions.
+       Render instructions: docs/marketing/github-metadata.md. -->
+  <rect width="1040" height="930" rx="24" fill="#1d1d20"/>
+  <g font-family="Adwaita Sans, Cantarell, Inter, sans-serif" font-size="22" fill="#deddda" text-anchor="middle">
+    <text x="520" y="52">Top bar: one chip per entity labelled in Home Assistant</text>
+    <text x="280" y="186">Blinds: choices and a position slider</text>
+    <text x="760" y="186">Chores: a Home Assistant to-do list</text>
+  </g>
+  <image x="357" y="72" width="326" height="64" xlink:href="../../screenshots/dark-topbar.png"/>
+  <image x="60" y="204" width="440" height="708" xlink:href="../../screenshots/dark-grid-detail.png"/>
+  <image x="540" y="204" width="440" height="691" xlink:href="../../screenshots/dark-grid-tasks.png"/>
+</svg>
